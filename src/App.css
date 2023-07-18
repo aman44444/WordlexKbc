@@ -1,0 +1,464 @@
+.App {
+  text-align: center;
+  background-color: #121212;
+  width: 100vw;
+  height: 100vh;
+  /* display: flex; */
+  color: white;
+}
+
+body {
+  padding: 0%;
+  margin: 0;
+}
+
+nav {
+  height: 60px;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid grey;
+  display: flex;
+  align-items:  center;
+  justify-content: center;
+}
+
+nav h1 {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 45px;
+}
+
+nav p{
+  font-family:Arial, Helvetica, sans-serif;
+  margin:5px;
+  font-size: 2em;
+ 
+}
+
+.nav-buttons{
+  display: flex;
+  position: absolute;
+  right:2em;
+ 
+}
+
+#kbc {
+  color: #b49f39;
+}
+
+#kbcwin{
+  color: #528d4e;
+}
+
+.game {
+  width: 100vw;
+  height: calc(100vh - 170px);
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+}
+
+.board {
+  width: 300px;
+  height: 400px;
+ 
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard {
+  width: 500px;
+  height: 150px;
+  margin-top: 40px;
+}
+
+.row {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+}
+
+.letter {
+  flex: 33%;
+  height: 100%;
+  border: 2px solid rgb(70, 68, 68);
+  margin: 2.5px;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: bolder;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#correct {
+  background-color: #528d4e;
+}
+
+#almost {
+  background-color: #b49f39;
+}
+
+#error {
+  background-color: #3a393c;
+}
+
+
+
+.line1 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  margin: 2px;
+}
+.line2 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2px;
+}
+.line3 {
+  flex: 33%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 2px;
+}
+
+.key {
+  width: 45px;
+  height: 60px;
+  margin: 3px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  background-color: grey;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.animate__bounceIn{
+display: flex;
+}
+
+#big {
+  width: 60px;
+}
+#disabled {
+  background-color: #3a393c;
+}
+
+.icons{
+  margin-left: 0.4em;
+}
+
+/*  */
+/*  style for lifeline buttons */
+/*  */
+
+
+.lifediv{
+  position: absolute;
+  top:10em;
+  right:2em;
+}
+
+.lifeline{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: #b49f39;
+  margin: 1em;
+  cursor: pointer;
+}
+
+.lifelinedis{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: #3a393c;
+  pointer-events: none; 
+  margin:1em;
+}
+
+/*  */
+/* style for rules modal  */
+/*  */
+
+.modal,.overlay{
+  width:100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  position: fixed;
+}
+
+.overlay{
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rules{
+  background-color:#121213;
+  position: absolute;
+  width:40%;
+  height:80vh;
+  line-height:1.4;
+  padding:20px;
+  max-width: 600px;
+  min-width: 300px;
+ font-size: 8px;
+ border-radius: 10px;
+}
+
+.closebtn{
+  padding: 20px;
+  font-size: 20px;
+  background-color:#121213;
+  border: none;
+  color: white;
+  position: absolute;
+  right:0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/*  */
+/* CSS FOR STATATICS MODAL */
+/*  */
+
+
+.stats{
+  background-color:#121213;
+  position: absolute;
+  width:40%;
+  height:80vh;
+  line-height:1.4;
+  padding:20px;
+  max-width: 600px;
+  min-width: 300px;
+ font-size: 8px;
+ border-radius: 10px;
+}
+
+#dis{
+  background-color: #3a393c;
+  pointer-events: none;  
+}
+
+
+#days-lose{
+  background-color: #3a393c;
+  color:white
+}
+
+
+
+
+/*  */
+/*  */
+/*  */
+/*  
+*/
+
+.timer {
+  background-color: rgba(255, 255, 255, 0.1);
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+}
+
+.col-4 {
+  width: 33%;
+float: left;
+}
+
+.box {
+  border-right: solid 1px rgba(255, 255, 255, 0.2);
+  font-weight: 300;
+  padding: 10px;
+}
+
+.col-4:last-child .box {
+  border-right-color: transparent;
+}
+
+.box p {
+  font-size: calc(16px + 2vmin);
+  margin: 0;
+}
+
+.text {
+  font-size: 14px
+}
+
+
+
+/*  */
+/* days progress */
+/*  */
+
+.circle {
+  width: 90%;
+  height: 2em;
+  line-height: 25px;
+  background-color: #3a393c;
+  color:white;
+  margin:1em;
+  border: 2px solid transparent;
+  cursor: pointer;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  
+ 
+  }
+  
+  .stepWrapper {
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: column;
+  }
+  
+  .stepBlock .circleWrapper {
+  padding: 0px 20px;
+  }
+  
+  .selected .circle{
+    background-color: #528d4e;
+    color: white;
+  
+  }
+  
+
+  .stepBlock:not(:last-child).selected > .circleWrapper::after, .stepBlock:not(:last-child).selected ~ .stepBlock:not(:last-child) > .circleWrapper::after {
+  height: 2px;
+  opacity: 0.6;
+  }
+   
+
+  
+  .stepBlock:not(:last-child) > .circleWrapper::after {
+    height: 3px;
+  }
+  
+  .stepBlock:not(:last-child).selected > .circleWrapper::after, .stepBlock:not(:last-child).selected ~ .stepBlock:not(:last-child) > .circleWrapper::after {
+    height: 2px;
+    opacity: 0.6;
+  }
+/*  */
+ /* scratch card */
+ /*  */
+
+ .scratch-reward-card {
+  width: 300px;
+  height: 150px;
+  background-color: #b49f39;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 50%;
+}
+
+.scratch-area {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.scratch-area.scratched {
+  background-color:#528d4e;
+}
+
+.scratch-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #888;
+}
+
+.revealed-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+}
+
+@media (max-width: 430px) { 
+   .keyboard{
+    width: 340px;
+   }
+   .board{
+    width:250px;
+    height:350px;
+   }
+   .lifediv{
+    position: absolute;
+    top:9em;
+    left:1em;
+  }
+  
+  .lifeline{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:3em;
+    height: 3em;
+    border-radius: 50%;
+    background-color: #b49f39;
+    margin: 1em;
+    cursor: pointer;
+  }
+
+  nav h1 {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: 30px;
+  }
+  
+  nav p{
+    font-family:Arial, Helvetica, sans-serif;
+    margin:7px;
+    font-size: 1em;
+   
+  }
+  .nav-buttons{
+    display: flex;
+    position: absolute;
+    right:0.1em;
+   
+  }
+  .icons{
+    margin-left: 0;
+    
+  }
+  
+  
+}
