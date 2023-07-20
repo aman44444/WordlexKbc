@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { AppContext } from '../../App';
-import Days from '../Days';
+
 
 import Timer from '../Timer';
 import StepTracker from '../WinD';
 
-import ProgressStep from '../WinD';
+
 
 
 
@@ -16,8 +16,7 @@ const Statistics = ({ close }) => {
         gameOver,
     } = useContext(AppContext);
 
-    const steps = 3;
-    const stepLabels = ['Step 1', 'Step 2', 'Step 3'];
+
 
 
     //   function handleClick(event) {
