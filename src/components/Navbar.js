@@ -26,7 +26,9 @@ export default function Navbar() {
 
    return (
       <nav>
+         <div className='in-progress'><p>incomplete</p></div>
          <div className="animate__bounceIn">
+            
             <h1 id='wordle'>Wordle </h1>
             <p>x</p>
             <h1 id={gameOver.guessedWord ? "kbcwin" : "kbc"}>KBC</h1>

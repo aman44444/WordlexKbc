@@ -42,7 +42,7 @@ const StepTracker = () => {
       {stepColors.map((color, index) => (
         <div key={index} 
         style={{ backgroundColor: currentStep >= index ? color : '#ccc' }}>
-          Step {index  }
+          Day {index  }
         </div>
       ))}
     </div>
@@ -57,48 +57,4 @@ export default StepTracker;
 
 
 
-// const StepTracker = () => {
-//   const { gameOver } = useContext(AppContext);
-//   const [currentStep, setCurrentStep] = useState(0);
-//   const stepColors = ['#0f0', '#0f0', '#0f0', '#0f0', '#0f0', '#0f0', '#0f0'];
 
-//   useEffect(() => {
-//     const storedStep = localStorage.getItem('currentStep');
-//     if (storedStep) {
-//       setCurrentStep(parseInt(storedStep));
-//     }
-//   }, []);
-
-//   const handleStepClick = (stepIndex) => {
-//     setCurrentStep(currentStep);
-//     localStorage.setItem('currentStep', stepIndex.toString());
-//     updateStep(stepIndex + 1);
-//   };
-
-//   useEffect(() => {
-//     if ( gameOver.gameOver && gameOver.guessedWord) {
-//       handleStepClick(stepColors.length);
-//     } else {
-//       setCurrentStep(0);
-//       localStorage.removeItem('currentStep');
-//     }
-//   }, [gameOver]);
-
-//   return (
-//     <div>
-//       <h2>Step Tracker</h2>
-//       <p>Click the buttons below to mark your progress:</p>
-//       {stepColors.map((color, index) => (
-//         <div
-//           key={index}
-//           style={{ backgroundColor: currentStep >= index ? color : '#ccc' }}
-//           onClick={() => handleStepClick(index)}
-//         >
-//           Step {index + 1}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default StepTracker;

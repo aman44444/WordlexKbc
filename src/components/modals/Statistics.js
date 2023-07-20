@@ -11,25 +11,25 @@ import ProgressStep from '../WinD';
 
 
 
-const Statistics = ({close}) => {
-   const {
-    gameOver, 
-  } = useContext(AppContext);
+const Statistics = ({ close }) => {
+    const {
+        gameOver,
+    } = useContext(AppContext);
 
-  const steps = 3;
-  const stepLabels = ['Step 1', 'Step 2', 'Step 3'];
+    const steps = 3;
+    const stepLabels = ['Step 1', 'Step 2', 'Step 3'];
 
 
-//   function handleClick(event) {
-//     event.stopPropagation();
-// }
- 
-  
-        return (
+    //   function handleClick(event) {
+    //     event.stopPropagation();
+    // }
+
+
+    return (
         <div className='modal'  >
             <div className='overlay'>
                 <div className='stats'>
-                 <button className='closebtn' >X</button>
+                    <button className='closebtn' >X</button>
                     <h1>Statistics</h1>
 
                     <div>
@@ -51,17 +51,13 @@ const Statistics = ({close}) => {
                         </div>
                     </div>
                     <h1>GUESS DISTRIBUTION</h1>
-               {/* <StepTracker/> */}
-                      {/* <Days/>   */}
-                      <StepTracker/>
-                     {/* <ProgressBar/> */}
-                     
-                   
-                    
-                      {gameOver.gameOver && <Timer/>}
-                 
+
+                    <StepTracker />
+
+                    {gameOver.gameOver && <Timer />}
+
                 </div>
-               
+
             </div>
         </div>
     )
