@@ -4,6 +4,7 @@ import { AppContext } from '../../App';
 
 import Timer from '../Timer';
 import StepTracker from '../WinD';
+import ProgressBar from '../Pro';
 
 
 
@@ -51,7 +52,7 @@ const Statistics = ({ close }) => {
                     </div>
                     <h1>GUESS DISTRIBUTION</h1>
 
-                    <StepTracker />
+                    <ProgressBar/>
 
                     {gameOver.gameOver && <Timer />}
 

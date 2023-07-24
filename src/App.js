@@ -7,6 +7,9 @@ import GameOver from "./components/GameOver";
 import Navbar from "./components/Navbar";
 import Prize from "./Prize";
 import amitabh2 from './audio/amitabh2.mp3'
+import ProgressBar from "./components/Pro";
+
+
 
 
 
@@ -28,6 +31,7 @@ function App(props) {
 
 
 const [prize,setPrize] = useState(false)
+
 // const [boardData, setBoardData] = useState([...boardDefault]);
 
 
@@ -50,7 +54,42 @@ const [prize,setPrize] = useState(false)
   //   }
   // },[]);
 
+  // 
+  // for day progress
+  // 
+  const [progress, setProgress] = useState([0, 0, 0, 0, 0, 0, 0]);
+  const [currentDay, setCurrentDay] = useState(1);
 
+ 
+  // Calculate the progress for each day (25% per day for 4 days)
+  const calculateProgress = (day) => {
+    return (day / 7) * 100;
+  };
+
+  // Handle the click event to advance to the next day
+
+  useEffect(() => {
+    if (gameOver.gameOver && gameOver.guessedWord) {
+        if (currentDay < 7) {
+            setCurrentDay((prevDay) => prevDay + 1);
+            const updatedProgress = [...progress];
+            updatedProgress[currentDay - 1] = 100;
+            setProgress(updatedProgress);
+          }
+    } else if (gameOver.gameOver) {
+        if (currentDay <= 7) {
+            setCurrentDay(1);
+            // const updatedProgress = [...progress];
+            // updatedProgress[currentDay - 6] = 100;
+            // setProgress(updatedProgress);
+          }
+    }
+
+  }, [gameOver]);
+ 
+  // 
+  // for generating words
+  // 
 
   useEffect(() => {
     
@@ -199,20 +238,27 @@ const [prize,setPrize] = useState(false)
           disabledLetters,
            setDisabledLetters,
           gameOver,
-          
+          setPrize,
           setWordSet,
           setCorrectWord,
+          currentDay,
+          progress,
+          setProgress,
+          setCurrentDay,
+         
            
         }}
 
       >
         <Navbar />
         <div className="game">
+        
           <Board />
          
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
           {prize && <Prize closeModal={setPrize}/>}
-         
+          
+       
         </div>
       </AppContext.Provider>
     </div>

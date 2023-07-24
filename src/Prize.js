@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from './App';
-import ScratchCoupon from './components/Scratchcard';
+
 import ScratchRewardCard from './components/Scratchcard';
 
 const Prize = ({closeModal}) => {
