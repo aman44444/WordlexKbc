@@ -7,7 +7,7 @@ import GameOver from "./components/GameOver";
 import Navbar from "./components/Navbar";
 import Prize from "./Prize";
 import amitabh2 from './audio/amitabh2.mp3'
-import ProgressBar from "./components/Pro";
+import ProgressBar from "./components/Progress";
 
 
 
@@ -166,7 +166,7 @@ const [prize,setPrize] = useState(false)
       setGameOver({ gameOver: true, guessedWord: true});
       const timeout = setTimeout(() => {
         setPrize(true)
-      }, 6000)
+      }, 4000)
   
     
   

@@ -6,7 +6,7 @@ import Rules from './navbuttons/Rules'
 
 
 import Stats from './navbuttons/Stats'
-import ColorChangingStepComponent from './WinD'
+
 
 
 

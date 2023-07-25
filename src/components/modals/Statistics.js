@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../../App';
-
-
 import Timer from '../Timer';
-import StepTracker from '../WinD';
-import ProgressBar from '../Pro';
+import ProgressBar from '../Progress';
 
 
 
@@ -19,12 +16,6 @@ const Statistics = ({ close }) => {
 
 
 
-
-    //   function handleClick(event) {
-    //     event.stopPropagation();
-    // }
-
-
     return (
         <div className='modal'  >
             <div className='overlay'>
@@ -32,26 +23,7 @@ const Statistics = ({ close }) => {
                     <button className='closebtn' >X</button>
                     <h1>Statistics</h1>
 
-                    <div>
-                        <div>
-                            <div>4</div>
-                            <div>Played</div>
-                        </div>
-                        <div>
-                            <div>25</div>
-                            <div>Win%</div>
-                        </div>
-                        <div>
-                            <div>0</div>
-                            <div>Current Streak</div>
-                        </div>
-                        <div>
-                            <div>1</div>
-                            <div>Max Streak</div>
-                        </div>
-                    </div>
-                    <h1>GUESS DISTRIBUTION</h1>
-
+                   <h2>Days Progress</h2>
                     <ProgressBar/>
 
                     {gameOver.gameOver && <Timer />}
