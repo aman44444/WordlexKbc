@@ -3,12 +3,6 @@ import { AppContext } from '../../App';
 import Timer from '../Timer';
 import ProgressBar from '../Progress';
 
-
-
-
-
-
-
 const Statistics = ({ close }) => {
     const {
         gameOver,

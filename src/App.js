@@ -9,11 +9,6 @@ import Prize from "./Prize";
 import amitabh2 from './audio/amitabh2.mp3'
 import ProgressBar from "./components/Progress";
 
-
-
-
-
-
 export const AppContext = createContext();
 
 function App(props) {

@@ -4,14 +4,10 @@ import { AppContext } from "../App";
 
 function GameOver() {
   const {
- 
     currAttempt,
     gameOver,
-   updateStep,
-   currentStep,
     correctWord,
-   
-  } = useContext(AppContext);
+   } = useContext(AppContext);
    
 
   
