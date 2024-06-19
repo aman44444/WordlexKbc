@@ -93,7 +93,7 @@ const [prize,setPrize] = useState(false)
         
         generateWordSet().then((words) => {
           setWordSet(words.wordSet);
-          setCorrectWord(words.todaysWord);
+          setCorrectWord(words.todaysWord.trim().toUpperCase());
                  
       // localStorage.setItem("boarddata",JSON.stringify());
        
@@ -151,13 +151,15 @@ const [prize,setPrize] = useState(false)
     for (let i = 0; i < 5; i++) {
       currWord += board[currAttempt.attempt][i];
     }
-    if (wordSet.has(currWord.toLowerCase())) {
+    currWord = currWord.toUpperCase();
+
+    if (wordSet.has(currWord)) {
       setCurrAttempt({ attempt: currAttempt.attempt + 1, letter: 0 });
     } else {
       alert("Word not found");
     }
 
-   if (currWord.toUpperCase() === correctWord.toUpperCase()) {
+   if (currWord === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true});
       const timeout = setTimeout(() => {
         setPrize(true)

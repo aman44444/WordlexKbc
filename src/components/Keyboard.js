@@ -1,12 +1,16 @@
 import React, { useCallback, useEffect, useContext } from "react";
 import Key from "./Key";
 import { AppContext } from "../App";
+import '../style/./Keyboard.css';
 
-function Keyboard() {
-  const keys1 = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
-  const keys2 = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
-  const keys3 = ["Z", "X", "C", "V", "B", "N", "M"];
+const keys = {
+  line1: ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+  line2: ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+  line3: ["Z", "X", "C", "V", "B", "N", "M"],
+};
 
+const Keyboard = () => {
+ 
   const {
     board,
     disabledLetters,
@@ -17,33 +21,23 @@ function Keyboard() {
     onDelete,
   } = useContext(AppContext);
 
-  const handleKeyboard = useCallback(
-    (event) => {
+  const handleKeyboard = useCallback((event) => {
       if (gameOver.gameOver) return;
-      if (event.key === "Enter") {
+
+      const key = event.key.toUpperCase();
+      if (key === "ENTER") {
         onEnter();
-      } else if (event.key === "Backspace") {
+      } else if (key === "BACKSPACE") {
         onDelete();
       } else {
-        keys1.forEach((key) => {
-          if (event.key.toLowerCase() === key.toLowerCase()) {
-            onSelectLetter(key);
-          }
-        });
-        keys2.forEach((key) => {
-          if (event.key.toLowerCase() === key.toLowerCase()) {
-            onSelectLetter(key);
-          }
-        });
-        keys3.forEach((key) => {
-          if (event.key.toLowerCase() === key.toLowerCase()) {
-            onSelectLetter(key);
+        Object.values(keys).flat().forEach((k) => {
+          if (key === k) {
+            onSelectLetter(k);
           }
         });
       }
-    },
-    [currAttempt]
-  );
+    }, [gameOver, onEnter, onDelete, onSelectLetter]);
+
   useEffect(() => {
     document.addEventListener("keydown", handleKeyboard);
 
@@ -53,23 +47,22 @@ function Keyboard() {
   }, [handleKeyboard]);
 
   console.log(disabledLetters);
+
+  const renderKeys = (keyArray) => keyArray.map((key) => (
+    <Key keyVal={key} key={key} disabled={disabledLetters.includes(key)} />
+  ));
+
   return (
     <div className="keyboard" onKeyDown={handleKeyboard}>
       <div className="line1">
-        {keys1.map((key) => {
-          return <Key keyVal={key} disabled={disabledLetters.includes(key)} />;
-        })}
+        {renderKeys(keys.line1)}
       </div>
       <div className="line2">
-        {keys2.map((key) => {
-          return <Key keyVal={key} disabled={disabledLetters.includes(key)} />;
-        })}
+        {renderKeys(keys.line2)}
       </div>
       <div className="line3">
         <Key keyVal={"ENTER"} bigKey />
-        {keys3.map((key) => {
-          return <Key keyVal={key} disabled={disabledLetters.includes(key)} />;
-        })}
+        {renderKeys(keys.line3)}
         <Key keyVal={"DELETE"} bigKey />
       </div>
     </div>

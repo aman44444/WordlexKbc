@@ -26,7 +26,7 @@ export default function Navbar() {
 
    return (
       <nav>
-         <div className='in-progress'><p>under construction</p></div>
+         <div className='in-progress'><p>Work in Progress</p></div>
          <div className="animate__bounceIn">
             
             <h1 id='wordle'>Wordle </h1>
