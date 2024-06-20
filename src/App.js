@@ -7,26 +7,23 @@ import GameOver from "./components/GameOver";
 import Navbar from "./components/Navbar";
 import Prize from "./Prize";
 import amitabh2 from './audio/amitabh2.mp3'
-import ProgressBar from "./components/Progress";
 
 export const AppContext = createContext();
 
-function App(props) {
+const App = (props) => {
   
   const [board, setBoard] = useState(boardDefault);
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letter: 0 });
   const [wordSet, setWordSet] = useState(new Set());
   const [correctWord, setCorrectWord] = useState("");
-  
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
     guessedWord: false,
   });
 
-
 const [prize,setPrize] = useState(false)
-
+const [keyState, setKeyState] = useState({});
 // const [boardData, setBoardData] = useState([...boardDefault]);
 
 
@@ -56,10 +53,6 @@ const [prize,setPrize] = useState(false)
   const [currentDay, setCurrentDay] = useState(1);
 
  
-  // Calculate the progress for each day (25% per day for 4 days)
-  const calculateProgress = (day) => {
-    return (day / 7) * 100;
-  };
 
   // Handle the click event to advance to the next day
 
@@ -81,6 +74,25 @@ const [prize,setPrize] = useState(false)
     }
 
   }, [gameOver]);
+
+  const updateKeyState = (currWord) => {
+    const newKeyState = { ...keyState };
+
+    for (let i = 0; i < currWord.length; i++) {
+      const letter = currWord[i];
+      if (correctWord.includes(letter)) {
+        if (correctWord[i] === letter) {
+          newKeyState[letter.toLowerCase()] = 'correct';
+        } else if (newKeyState[letter.toLowerCase()] !== 'correct') {
+          newKeyState[letter.toLowerCase()] = 'almost';
+        }
+      } else {
+        newKeyState[letter.toLowerCase()] = 'error';
+      }
+    }
+
+    setKeyState(newKeyState);
+  };
  
   // 
   // for generating words
@@ -154,6 +166,7 @@ const [prize,setPrize] = useState(false)
     currWord = currWord.toUpperCase();
 
     if (wordSet.has(currWord)) {
+      updateKeyState(currWord);
       setCurrAttempt({ attempt: currAttempt.attempt + 1, letter: 0 });
     } else {
       alert("Word not found");
@@ -165,9 +178,6 @@ const [prize,setPrize] = useState(false)
         setPrize(true)
       }, 4000)
   
-    
-  
-    
      
       const audio = new Audio(amitabh2);
       audio.autoplay =true;
@@ -186,7 +196,6 @@ const [prize,setPrize] = useState(false)
     }
    
    
- 
     //  local storage for board
     
     // const newData = [...boardDefault]
@@ -242,8 +251,8 @@ const [prize,setPrize] = useState(false)
           progress,
           setProgress,
           setCurrentDay,
-         
-           
+          keyState,
+          
         }}
 
       >

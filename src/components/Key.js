@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { AppContext } from "../App";
+import '../style/./Key.css';
 
-function Key({ keyVal, bigKey, disabled }) {
-  const { gameOver, onSelectLetter, onDelete, onEnter } =
+const Key = ({ keyVal, bigKey, disabled }) => {
+  const { gameOver, onSelectLetter, onDelete, onEnter,keyState } =
     useContext(AppContext);
 
   const selectLetter = () => {
@@ -15,10 +16,12 @@ function Key({ keyVal, bigKey, disabled }) {
       onSelectLetter(keyVal);
     }
   };
+
+  const keyClass = `key ${bigKey ? "big" : ""} ${disabled ? "disabled" : ""} ${keyState[keyVal.toLowerCase()]}`;
+
   return (
     <div
-      className="key"
-      id={bigKey ? "big" : disabled && "disabled"}
+      className={keyClass}
       onClick={selectLetter}
     >
       {keyVal}

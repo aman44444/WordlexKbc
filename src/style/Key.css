@@ -1,0 +1,36 @@
+/* Key.css */
+
+.key {
+    width: 45px;
+    height: 60px;
+    margin: 3px;
+    border-radius: 4px;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    background-color: grey;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+  }
+  
+  .key.big {
+    width: 60px;
+  }
+  
+  .key.disabled {
+    background-color: #3a393c;
+  }
+  
+  .key.correct {
+    background-color: #528d4e;
+  }
+  
+  .key.almost {
+    background-color: #b49f39;
+  }
+  
+  .key.error {
+    background-color: #3a393c;
+  }
+  

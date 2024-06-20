@@ -12,13 +12,12 @@ const keys = {
 const Keyboard = () => {
  
   const {
-    board,
     disabledLetters,
-    currAttempt,
     gameOver,
     onSelectLetter,
     onEnter,
     onDelete,
+    keyState
   } = useContext(AppContext);
 
   const handleKeyboard = useCallback((event) => {

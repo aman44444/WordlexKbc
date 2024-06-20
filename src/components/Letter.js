@@ -1,7 +1,7 @@
-import React, { useContext, useEffect ,useState} from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContext } from "../App";
 
-function Letter({ letterPos, attemptVal }) {
+const Letter = ({ letterPos, attemptVal }) => {
   const { board, currAttempt, setDisabledLetters,correctWord } =
     useContext(AppContext);
   
@@ -17,14 +17,11 @@ function Letter({ letterPos, attemptVal }) {
 
   useEffect(() => {
    
-    if (letter !== "" && !correct && !almost) {
+    if (letter !== "" && currAttempt.attempt > attemptVal && !correct && !almost) {
       console.log(letter);
       setDisabledLetters((prev) => [...prev, letter]);
     }
-    if(letter === correct){
-      setDisabledLetters(currAttempt)
-    }
-  
+   
    
   }, [letter,currAttempt.attempt]);
  
