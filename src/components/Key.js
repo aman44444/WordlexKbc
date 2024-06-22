@@ -8,9 +8,8 @@ const Key = ({ keyVal, bigKey, disabled }) => {
 
   const selectLetter = () => {
     if (gameOver.gameOver) return;
-    if (keyVal === "ENTER") {
-      onEnter();
-    } else if (keyVal === "DELETE") {
+    if (keyVal === "ENTER") onEnter();
+     else if (keyVal === "DELETE") {
       onDelete();
     } else {
       onSelectLetter(keyVal);
