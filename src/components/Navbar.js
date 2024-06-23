@@ -2,28 +2,13 @@ import React, { useContext } from 'react'
 import { AppContext } from '../App'
 import Lifeline from './navbuttons/Lifeline'
 import Rules from './navbuttons/Rules'
-
-
-
 import Stats from './navbuttons/Stats'
+import "../style/./Navbar.css"
 
+const Navbar = () => {
 
-
-
-export default function Navbar() {
-
-   const {
- 
-      currAttempt,
-      gameOver,
-     updateStep,
-     currentStep,
-      correctWord,
+   const {gameOver,} = useContext(AppContext)
      
-    } = useContext(AppContext)
-     
- 
-
    return (
       <nav>
          <div className='in-progress'><p>Work in Progress</p></div>
@@ -37,11 +22,13 @@ export default function Navbar() {
          <div className='nav-buttons' >
             <Rules/>
             <Lifeline />
-           <Stats />
+            <Stats />
          
          </div>
 
       </nav>
 
-   )
+   );
 }
+
+export default Navbar;
