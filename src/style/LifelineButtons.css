@@ -1,0 +1,50 @@
+.lifediv {
+    position: absolute;
+    top: 10em;
+    right: 2em;
+  }
+  
+  .lifeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: #b49f39;
+    margin: 1em;
+    cursor: pointer;
+  }
+  
+  .lifelinedis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: #3a393c;
+    pointer-events: none;
+    margin: 1em;
+  }
+  
+  @media (max-width: 430px) {
+    .lifediv {
+      position: absolute;
+      top: 9em;
+      left: 1em;
+    }
+  
+    .lifeline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3em;
+      height: 3em;
+      border-radius: 50%;
+      background-color: #b49f39;
+      margin: 1em;
+      cursor: pointer;
+    }
+  }
+  

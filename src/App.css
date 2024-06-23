@@ -12,44 +12,6 @@ body {
   margin: 0;
 }
 
-nav {
-  height: 60px;
-  width: 100%;
-  margin: 0;
-  border-bottom: 1px solid grey;
-  display: flex;
-  align-items:  center;
-  justify-content: center;
-}
-
-nav h1 {
-  margin: 0;
-  font-family: Helvetica, Arial, sans-serif;
-  color: white;
-  font-size: 45px;
-}
-
-nav p{
-  font-family:Arial, Helvetica, sans-serif;
-  margin:5px;
-  font-size: 2em;
- 
-}
-
-.nav-buttons{
-  display: flex;
-  position: absolute;
-  right:2em;
- 
-}
-
-#kbc {
-  color: #b49f39;
-}
-
-#kbcwin{
-  color: #528d4e;
-}
 
 .game {
   width: 100vw;
@@ -60,90 +22,12 @@ nav p{
   flex-direction: column;
 }
 
-.board {
-  width: 300px;
-  height: 400px;
- 
-  display: flex;
-  flex-direction: column;
-}
-
-.row {
-  flex: 33%;
-  display: flex;
-  flex-direction: row;
-  margin: 5px;
-}
-
-.letter {
-  flex: 33%;
-  height: 100%;
-  border: 2px solid rgb(70, 68, 68);
-  margin: 2.5px;
-  display: grid;
-  place-items: center;
-  font-size: 30px;
-  font-weight: bolder;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-#correct {
-  background-color: #528d4e;
-}
-
-#almost {
-  background-color: #b49f39;
-}
-
-#error {
-  background-color: #3a393c;
-}
-
-
-.animate__bounceIn{
-display: flex;
-}
-
-
-.icons{
-  margin-left: 0.4em;
-}
 
 /*  */
 /*  style for lifeline buttons */
 /*  */
 
 
-.lifediv{
-  position: absolute;
-  top:10em;
-  right:2em;
-}
-
-.lifeline{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width:5em;
-  height: 5em;
-  border-radius: 50%;
-  background-color: #b49f39;
-  margin: 1em;
-  cursor: pointer;
-}
-
-.lifelinedis{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width:5em;
-  height: 5em;
-  border-radius: 50%;
-  background-color: #3a393c;
-  pointer-events: none; 
-  margin:1em;
-}
 
 /*  */
 /* style for rules modal  */
@@ -361,65 +245,15 @@ float: left;
 }
 
 @media (max-width: 430px) { 
-   /* .keyboard{
-    width: 340px;
-   } */
-    
+   
    .board{
     width:250px;
     height:350px;
    }
-   .lifediv{
-    position: absolute;
-    top:9em;
-    left:1em;
-  }
-  
-  .lifeline{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width:3em;
-    height: 3em;
-    border-radius: 50%;
-    background-color: #b49f39;
-    margin: 1em;
-    cursor: pointer;
-  }
-
-  nav h1 {
-    margin: 0;
-    font-family: Helvetica, Arial, sans-serif;
-    color: white;
-    font-size: 30px;
-  }
-  
-  nav p{
-    font-family:Arial, Helvetica, sans-serif;
-    margin:7px;
-    font-size: 1em;
-   
-  }
-  .nav-buttons{
-    display: flex;
-    position: absolute;
-    right:0.1em;
-   
-  }
-  .icons{
-    margin-left: 0;
-    
-  }
- 
   
 }
 
-.in-progress{
-  font-size: 5px;
-  background-color:red;
-  position: absolute;
-  left: 0;
-}
+
 
 /* progress dummy */
 
