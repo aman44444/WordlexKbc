@@ -4,14 +4,12 @@ import Instructions from '../modals/Instructions';
 
 const Rules = () => {
     const [rules, setRules] = useState(false)
+
+    const toggleRules = () => {
+        setRules(prevState => !prevState);
+      };
     return (
-        <div className='icons' onClick={() => {
-           if(rules === false){
-            setRules(true)
-           }else{
-            setRules(false)
-           }
-        }}>
+        <div className='icons' onClick={toggleRules}>
            <BiHelpCircle size={30}/>
            {rules && <Instructions close={setRules}/>}
         </div>

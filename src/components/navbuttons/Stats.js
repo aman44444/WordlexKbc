@@ -6,28 +6,19 @@ import Statistics from '../modals/Statistics';
 
 const Stats = () => {
     const [openStats, setOpenStats] = useState(false)
-    const {gameOver,labelArray,
-        updateStep,
-        currentStep,} = useContext(AppContext)
+    // const {gameOver,labelArray,
+    //     updateStep,
+    //     currentStep,} = useContext(AppContext)
+
+    const toggleStats = () => {
+        setOpenStats(prevState => !prevState);
+      };
 
     return (
-       <> <div className='icons' onClick={()=>{
-            if(openStats === false){
-                setOpenStats(true)
-               }else{
-                setOpenStats(false)
-               }
-        }}>
+       <div className='icons' onClick={toggleStats}>
             <IoIosStats size={30} />
-          {openStats && <Statistics/>}
-
-
-        </div>
-
-       
-       
-        </>
-        
+            {openStats && <Statistics/>}
+        </div>  
     )
 }
 
