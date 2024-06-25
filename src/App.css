@@ -50,18 +50,6 @@ body {
   justify-content: center;
 }
 
-.rules{
-  background-color:#121213;
-  position: absolute;
-  width:20%;
-  height:80vh;
-  line-height:1.4;
-  padding:20px;
-  max-width: 600px;
-  min-width: 300px;
- font-size: 8px;
- border-radius: 10px;
-}
 
 .closebtn{
   padding: 20px;
