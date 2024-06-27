@@ -96,47 +96,6 @@ body {
 
 
 /*  */
-/*  */
-/*  */
-/*  
-*/
-
-.timer {
-  background-color: rgba(255, 255, 255, 0.1);
-  display: inline-block;
-  margin-top: 25px;
-  padding: 10px;
-  text-align: center;
-  width: 80%;
-}
-
-.col-4 {
-  width: 33%;
-float: left;
-}
-
-.box {
-  border-right: solid 1px rgba(255, 255, 255, 0.2);
-  font-weight: 300;
-  padding: 10px;
-}
-
-.col-4:last-child .box {
-  border-right-color: transparent;
-}
-
-.box p {
-  font-size: calc(16px + 2vmin);
-  margin: 0;
-}
-
-.text {
-  font-size: 14px
-}
-
-
-
-/*  */
 /* days progress */
 /*  */
 

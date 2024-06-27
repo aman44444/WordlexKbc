@@ -1,25 +1,35 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React ,{ useState, useEffect } from 'react';
+import "../style/./Timer.css"
 
 const Timer = () => {
-   
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(0);
   
-    const deadline = "October, 31, 2023";
-  
+  const [timeRemaining, setTimeRemaining] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  const getNextMidnight = () => {
+    const now = new Date();
+    const nextMidnight = new Date(now);
+    nextMidnight.setHours(24, 0, 0, 0); // Set time to next midnight
+    return nextMidnight;
+  };
+
+
     const getTime = () => {
-      const time = Date.parse(deadline) - Date.now();    
+      const time = getNextMidnight() - Date.now();
   
-      setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-      setMinutes(Math.floor((time / 1000 / 60) % 60));
-      setSeconds(Math.floor((time / 1000) % 60));
+      setTimeRemaining({
+        hours: Math.floor((time / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((time / 1000 / 60) % 60),
+        seconds: Math.floor((time / 1000) % 60),
+      });
     };
-  
+
     useEffect(() => {
-      const interval = setInterval(() => getTime(deadline), 1000);
-  
+      getTime(); 
+      const interval = setInterval(getTime, 1000);
       return () => clearInterval(interval);
     }, []);
   
@@ -28,19 +38,19 @@ const Timer = () => {
         <div>NEXT WORDLE</div>
         <div className="col-4">
           <div className="box">
-            <p id="hour">{hours < 10 ? "0" + hours : hours}</p>
+            <p id="hour">{String(timeRemaining.hours).padStart(2, '0')}</p>
             <span className="text">Hours</span>
           </div>
         </div>
         <div className="col-4">
           <div className="box">
-            <p id="minute">{minutes < 10 ? "0" + minutes : minutes}</p>
+            <p id="minute">{String(timeRemaining.minutes).padStart(2, '0')}</p>
             <span className="text">Minutes</span>
           </div>
         </div>
         <div className="col-4">
           <div className="box">
-            <p id="second">{seconds < 10 ? "0" + seconds : seconds}</p>
+            <p id="second">{String(timeRemaining.seconds).padStart(2, '0')}</p>
             <span className="text">Seconds</span>
           </div>
         </div>
