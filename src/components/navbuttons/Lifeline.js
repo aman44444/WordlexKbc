@@ -1,6 +1,7 @@
 import React ,{useState}from 'react'
-import {FaHandsHelping} from 'react-icons/fa'
+import {FaHeartPulse} from "react-icons/fa6";
 import LifelineButtons from '../LifelineButtons'
+
 
 
 
@@ -9,7 +10,7 @@ const Lifeline = () => {
     
     return (
          <div className='icons' onClick={() => setLifelines(true)}>
-            <FaHandsHelping size={30}/>
+            <FaHeartPulse size={29}/>
             {lifelines && <LifelineButtons/>}
          </div>
          
