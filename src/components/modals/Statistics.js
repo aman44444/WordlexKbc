@@ -8,8 +8,6 @@ const Statistics = ({ close }) => {
         gameOver,
     } = useContext(AppContext);
 
-
-
     return (
         <div className='modal'  >
             <div className='overlay'>
