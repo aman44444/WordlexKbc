@@ -142,11 +142,6 @@ const [keyState, setKeyState] = useState({});
 //     }
 //   }, []);
 
-  
-    
-
-
-
 //  useEffect(() => {
 //   localStorage.setItem("disabled-letter", JSON.stringify(disabledLetters))
 
@@ -184,7 +179,6 @@ const [keyState, setKeyState] = useState({});
       audio.play();
    
       return () => clearTimeout(timeout)
-          return ;
   }
 
     console.log(currAttempt);
@@ -194,14 +188,6 @@ const [keyState, setKeyState] = useState({});
 
       return;
     }
-   
-   
-    //  local storage for board
-    
-    // const newData = [...boardDefault]
-    // localStorage.setItem('wordle-Board', JSON.stringify(newData));
-    // setBoard(newData)
-
    
   };
 
@@ -258,13 +244,9 @@ const [keyState, setKeyState] = useState({});
       >
         <Navbar />
         <div className="game">
-        
           <Board />
-         
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
           {prize && <Prize closeModal={setPrize}/>}
-          
-       
         </div>
       </AppContext.Provider>
     </div>
