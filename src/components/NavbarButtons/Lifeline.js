@@ -3,15 +3,18 @@ import {FaHeartPulse} from "react-icons/fa6";
 import LifelineButtons from '../LifelineButtons'
 
 
-
-
 const Lifeline = () => {
-    const [lifelines,setLifelines] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = (e) => {
+        e.stopPropagation();
+        setIsOpen(prev => !prev); 
+    };
     
     return (
-         <div className='icons' onClick={() => setLifelines(true)}>
+         <div className='icons' onClick={handleClick}>
             <FaHeartPulse size={29}/>
-            {lifelines && <LifelineButtons/>}
+            {isOpen && <LifelineButtons/>}
          </div>
          
     )
