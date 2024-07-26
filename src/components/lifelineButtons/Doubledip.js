@@ -1,26 +1,13 @@
-import { click } from '@testing-library/user-event/dist/click';
-import React, { useEffect, useState } from 'react';
-import { useContext } from 'react';
-import { BiBody } from 'react-icons/bi';
+import React, { useState ,useContext } from 'react';
 import { AppContext } from '../../App';
 
-
-
 const Doubledip = () => {
-    const {
-        board,
-        currAttempt,
-        setBoard,
-        setCurrAttempt,
-      } = useContext(AppContext)
-
-   
-
-    
-     const [btnDisabled,setBtnDisabled] = useState(()=>{
-        const storedValue = localStorage.getItem("isButtonDisabled");
-        return storedValue ? JSON.parse(storedValue) : false;
-     })
+    const { board, currAttempt, setBoard, setCurrAttempt, } = useContext(AppContext)
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    // const [btnDisabled,setBtnDisabled] = useState(() => {
+    //     const storedValue = localStorage.getItem("isButtonDisabled");
+    //     return storedValue ? JSON.parse(storedValue) : false;
+    //  })
       
       // const handleClick = event => {
       //   event.currentTarget.disabled = true;
@@ -48,23 +35,26 @@ const Doubledip = () => {
     //    event.currentTarget.id="dis"
     // }
 
-    useEffect(() => {
-        localStorage.setItem('isButtonDisabled',JSON.stringify(btnDisabled))
-    },[btnDisabled])
+    // useEffect(() => {
+    //     localStorage.setItem('isButtonDisabled',JSON.stringify(btnDisabled))
+    // },[btnDisabled])
     
- const handleClick =event => {
-    const newBoard = [...board];
-    for(let i =0 ; i<5; i++){
-       newBoard[currAttempt.attempt-1][i] = "";
+
+   const handleClick = (event) => {
+
+      event.stopPropagation();
+
+      setIsButtonDisabled(true);
+      event.currentTarget.disabled = true;
+
+      const updatedBoard = [...board];
+      for (let i = 0; i < 5; i++) {
+        updatedBoard[currAttempt.attempt - 1][i] = '';
     }
-     setBoard(newBoard);
-  
-    setCurrAttempt({ attempt: currAttempt.attempt -1, letter: 0 });
-    event.currentTarget.disabled =true;
-    event.currentTarget.id = "dis"
-    setBtnDisabled(true)
-    console.log("click")
- }
+    setBoard(updatedBoard);
+    setCurrAttempt({ attempt: currAttempt.attempt - 1, letter: 0 });
+    
+   }
 
 
 
@@ -95,12 +85,15 @@ const Doubledip = () => {
             
     //   },[])
     return (
-
-        <div>
-            
-        <div className="lifeline" id="" onClick={handleClick} disabled={btnDisabled} >DD</div>
-        
-        </div>
+       <div>
+            <button
+                className="lifeline"
+                onClick={handleClick}
+                disabled={isButtonDisabled}
+            >
+                DD
+            </button>
+       </div>
     )
 }
 export default Doubledip; 
