@@ -85,14 +85,8 @@ const Doubledip = () => {
             
     //   },[])
     return (
-       <div>
-            <button
-                className="lifeline"
-                onClick={handleClick}
-                disabled={isButtonDisabled}
-            >
-                DD
-            </button>
+       <div  className="lifeline" onClick={handleClick} disabled={isButtonDisabled}>
+            DD
        </div>
     )
 }
