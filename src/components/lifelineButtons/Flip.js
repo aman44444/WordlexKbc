@@ -1,68 +1,41 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AppContext } from '../../App';
-import { boardDefault,generateWordSet } from '../../Words';
+import { generateWordSet } from '../../Words';
 
 export default function Flip(){
-  const {setCorrectWord,setWordSet,board,currAttempt,
-    setBoard,
-    setCurrAttempt,} = useContext(AppContext)
-
-
+  const { setCorrectWord, setWordSet, board,  setBoard,} = useContext(AppContext)
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     
-    const [bDisabled,setBDisabled] = useState(()=>{
-      const storedValue = localStorage.getItem("ButtonDisabled");
-      return storedValue ? JSON.parse(storedValue) : false;
-   })
-    
-   
 
-   useEffect(() => {
-    localStorage.setItem('ButtonDisabled',JSON.stringify(bDisabled))
-},[bDisabled])
+//    useEffect(() => {
+//     localStorage.setItem('ButtonDisabled',JSON.stringify(bDisabled))
+// },[bDisabled])
 
-const handleClick =event => {
-  const newBoard = [...board];
-  for(let i =0 ; i<5; i++){
-    for(let j=0; j<6; j++){
-     newBoard[j][i] = "";
-    }
-  }
+const handleClick =async event => {
 
-setCurrAttempt({ attempt: 0, letter: 0 });
+  event.stopPropagation();
 
+  const clearedBoard = board.map(row => row.map(() => ''));
+  setBoard(clearedBoard);
 
-generateWordSet().then((words) => {
- setWordSet(words.wordSet);
- setCorrectWord(words.todaysWord);
+  const words = await generateWordSet();
+  setWordSet(words.wordSet);
+  setCorrectWord(words.todaysWord);
 
-})
-setBDisabled(true)
-event.currentTarget.id = "dis"
-console.log("click")
+  setIsButtonDisabled(true);
+  event.currentTarget.id = 'dis'; 
+
+  console.log('Button clicked');
+  
+
 }
  
 
   return (
     
-         <div className='lifeline' id="" onClick={handleClick} disabled={bDisabled}
-        //   const newBoard = [...board];
-        //      for(let i =0 ; i<5; i++){
-        //        for(let j=0; j<6; j++){
-        //         newBoard[j][i] = "";
-        //        }
-        //      }
-        
-        //   setCurrAttempt({ attempt: 0, letter: 0 });
-
-
-        //   generateWordSet().then((words) => {
-        //     setWordSet(words.wordSet);
-        //     setCorrectWord(words.todaysWord);
-          
-        //  })
-        
-        
-        >Flip</div>
+         <div className='lifeline' id="" onClick={handleClick} style={{ cursor: isButtonDisabled ? 'not-allowed' : 'pointer' }} >
+            Flip
+         </div>
     
   )
 }
