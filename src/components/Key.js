@@ -3,12 +3,13 @@ import { AppContext } from "../App";
 import '../style/./Key.css';
 
 const Key = ({ keyVal, bigKey, disabled }) => {
-  const { gameOver, onSelectLetter, onDelete, onEnter,keyState } =
-    useContext(AppContext);
+  const { gameOver, onSelectLetter, onDelete, onEnter,keyState } = useContext(AppContext);
 
   const selectLetter = () => {
     if (gameOver.gameOver) return;
-    if (keyVal === "ENTER") onEnter();
+    if (keyVal === "ENTER"){
+      onEnter();
+    }
      else if (keyVal === "DELETE") {
       onDelete();
     } else {
@@ -20,7 +21,7 @@ const Key = ({ keyVal, bigKey, disabled }) => {
 
   return (
     <div
-      className={keyClass}
+      className={keyClass.trim()}
       onClick={selectLetter}
     >
       {keyVal}

@@ -11,21 +11,20 @@ const Navbar = () => {
      
    return (
       <nav>
-         <div className='in-progress'><p>Work in Progress</p></div>
-         <div className="animate__bounceIn">
+           <div className='in-progress'><p>Work in Progress</p></div>
+           <div className="animate__bounceIn">
             
             <h1 id='wordle'>Wordle </h1>
             <p>x</p>
             <h1 id={gameOver.guessedWord ? "kbcwin" : "kbc"}>KBC</h1>
 
-         </div>
-         <div className='nav-buttons' >
+           </div>
+           <div className='nav-buttons' >
             <Rules/>
             <Lifeline />
             <Stats />
          
-         </div>
-
+           </div>
       </nav>
 
    );
