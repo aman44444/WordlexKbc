@@ -163,9 +163,7 @@ const [keyState, setKeyState] = useState({});
     if (wordSet.has(currWord)) {
       updateKeyState(currWord);
       setCurrAttempt({ attempt: currAttempt.attempt + 1, letter: 0 });
-    } else {
-      alert("Word not found");
-    }
+    
 
    if (currWord === correctWord) {
       setGameOver({ gameOver: true, guessedWord: true});
@@ -181,15 +179,21 @@ const [keyState, setKeyState] = useState({});
       return () => clearTimeout(timeout)
   }
 
+  setCurrAttempt({ attempt: currAttempt.attempt + 1, letter: 0 });
+
     console.log(currAttempt);
     if (currAttempt.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false });
       
 
-      return;
     }
    
-  };
+
+    } else {
+  alert("Word not found"); // Alert if the word is invalid
+   }
+}
+
 
   const onDelete = () => {
     if (currAttempt.letter === 0) return;
