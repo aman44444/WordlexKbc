@@ -7,8 +7,8 @@ const GameOver = () => {
   return (
     <div className="gameOver">
       <h3>
-        {gameOver.guessedWord 
-          ? "You Correctly Guessed the Wordle" 
+        {gameOver.guessedWord
+          ? "You Correctly Guessed the Wordle"
           : "You Failed to Guess the Word"}
       </h3>
       {gameOver.guessedWord && (
@@ -17,6 +17,6 @@ const GameOver = () => {
       <h1>Correct Word: {correctWord}</h1>
     </div>
   );
-}
+};
 
 export default GameOver;

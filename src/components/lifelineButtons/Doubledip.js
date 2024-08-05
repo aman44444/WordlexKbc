@@ -5,7 +5,7 @@ const Doubledip = () => {
   const { board, currAttempt, setBoard, setCurrAttempt } =
     useContext(AppContext);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [elementId, setElementId] = useState('');
+  const [elementId, setElementId] = useState("");
   // const [btnDisabled,setBtnDisabled] = useState(() => {
   //     const storedValue = localStorage.getItem("isButtonDisabled");
   //     return storedValue ? JSON.parse(storedValue) : false;
@@ -45,7 +45,7 @@ const Doubledip = () => {
     event.stopPropagation();
     setIsButtonDisabled(true);
     event.currentTarget.disabled = true;
-    setElementId('dis');
+    setElementId("dis");
 
     if (currAttempt.attempt > 0 && currAttempt.attempt <= board.length) {
       const updatedBoard = [...board];
@@ -90,7 +90,12 @@ const Doubledip = () => {
 
   //   },[])
   return (
-    <div className="lifeline" id={elementId}  onClick={handleClick} disabled={isButtonDisabled}>
+    <div
+      className="lifeline"
+      id={elementId}
+      onClick={handleClick}
+      disabled={isButtonDisabled}
+    >
       DD
     </div>
   );

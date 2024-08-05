@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useContext } from "react";
 import Key from "./Key";
 import { AppContext } from "../App";
-import '../style/./Keyboard.css';
+import "../style/./Keyboard.css";
 
 const keys = {
   line1: ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -10,17 +10,17 @@ const keys = {
 };
 
 const Keyboard = () => {
- 
   const {
     disabledLetters,
     gameOver,
     onSelectLetter,
     onEnter,
     onDelete,
-    keyState
+    keyState,
   } = useContext(AppContext);
 
-  const handleKeyboard = useCallback((event) => {
+  const handleKeyboard = useCallback(
+    (event) => {
       if (gameOver.gameOver) return;
 
       const key = event.key.toUpperCase();
@@ -29,13 +29,17 @@ const Keyboard = () => {
       } else if (key === "BACKSPACE") {
         onDelete();
       } else {
-        Object.values(keys).flat().forEach((k) => {
-          if (key === k) {
-            onSelectLetter(k);
-          }
-        });
+        Object.values(keys)
+          .flat()
+          .forEach((k) => {
+            if (key === k) {
+              onSelectLetter(k);
+            }
+          });
       }
-    }, [gameOver, onEnter, onDelete, onSelectLetter]);
+    },
+    [gameOver, onEnter, onDelete, onSelectLetter]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyboard);
@@ -47,18 +51,15 @@ const Keyboard = () => {
 
   console.log(disabledLetters);
 
-  const renderKeys = (keyArray) => keyArray.map((key) => (
-    <Key keyVal={key} key={key} disabled={disabledLetters.includes(key)} />
-  ));
+  const renderKeys = (keyArray) =>
+    keyArray.map((key) => (
+      <Key keyVal={key} key={key} disabled={disabledLetters.includes(key)} />
+    ));
 
   return (
     <div className="keyboard" onKeyDown={handleKeyboard}>
-      <div className="line1">
-        {renderKeys(keys.line1)}
-      </div>
-      <div className="line2">
-        {renderKeys(keys.line2)}
-      </div>
+      <div className="line1">{renderKeys(keys.line1)}</div>
+      <div className="line2">{renderKeys(keys.line2)}</div>
       <div className="line3">
         <Key keyVal={"ENTER"} bigKey />
         {renderKeys(keys.line3)}
@@ -66,6 +67,6 @@ const Keyboard = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Keyboard;
