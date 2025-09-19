@@ -2,6 +2,7 @@
     position: absolute;
     top: 10em;
     right: 2em;
+    
   }
   
   .lifeline {
@@ -28,9 +29,23 @@
     margin: 1em;
   }
   
+  .lifelineWin{
+    pointer-events: none;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: #b49f39;
+    margin: 1em;
+    pointer-events: none;
+  } 
+
   @media (max-width: 430px) {
     .lifediv {
       position: absolute;
+      /* position: fixed; */
       top: 9em;
       left: 1em;
     }
@@ -45,6 +60,8 @@
       background-color: #b49f39;
       margin: 1em;
       cursor: pointer;
+      
     }
+
+    
   }
-  
