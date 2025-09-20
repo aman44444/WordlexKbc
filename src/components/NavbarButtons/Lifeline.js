@@ -13,7 +13,7 @@ const Lifeline = () => {
     
     return (
          <div className='icons' onClick={handleClick}>
-            <FaHeartPulse size={29}/>
+            <FaHeartPulse />
             {isOpen && <LifelineButtons/>}
          </div>
          
