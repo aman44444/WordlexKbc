@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useContext } from "react";
 import Key from "./Key";
-import { AppContext } from "../App";
-import "../style/./Keyboard.css";
+import { AppContext } from "../../../App";
+import "../Keyboard/Keyboard.css"
 
 const keys = {
   line1: ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],

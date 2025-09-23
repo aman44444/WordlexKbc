@@ -1,6 +1,6 @@
 import React from "react";
-import Letter from "./Letter";
-import "../style/./Board.css";
+import Letter from "../Letter/Letter";
+import "../Board/Board.css"
 
 const Board = () => {
   const rows = Array.from({ length: 6 }, (_, rowIndex) => (

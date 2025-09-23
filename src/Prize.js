@@ -1,5 +1,5 @@
 import React from "react";
-import ScratchRewardCard from "./components/Scratchcard";
+import ScratchRewardCard from "./components/game/Scratchcard";
 
 const Prize = ({ closeModal }) => {
   return (

@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState } from 'react';
-import '../style/./ScratchRewardCard.css';
+import "../game/ScratchRewardCard.css"
 
 const ScratchRewardCard = () => {
   const [isScratched, setScratched] = useState(false);

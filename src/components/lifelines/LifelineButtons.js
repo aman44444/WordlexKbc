@@ -1,8 +1,8 @@
 import React from "react";
-import Doubledip from "./lifelineButtons/Doubledip";
-import Fiftyfifty from "./lifelineButtons/fiftyfifty";
+import "../lifelines/LifelineButtons.css"
 import Flip from "./lifelineButtons/Flip";
-import "../style/./LifelineButtons.css";
+import Fiftyfifty from "./lifelineButtons/fiftyfifty";
+import Doubledip from "./lifelineButtons/Doubledip";
 
 const LifelineButtons = () => {
   return (

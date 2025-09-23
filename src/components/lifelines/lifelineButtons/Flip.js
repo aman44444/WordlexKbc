@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AppContext } from "../../App";
-import { generateWordSet } from "../../Words";
+import { AppContext } from "../../../App";
+import { generateWordSet } from "../../../utils/Words";
 
 export default function Flip() {
   const { setCorrectWord, setWordSet, board, setCurrAttempt,gameOver } =

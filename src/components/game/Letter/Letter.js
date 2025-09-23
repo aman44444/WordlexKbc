@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { AppContext } from "../App";
-import "../style/./Letter.css";
+import { AppContext } from "../../../App";
+import "../Letter/Letter.css"
 
 const Letter = ({ letterPos, attemptVal }) => {
   const { board, currAttempt, setDisabledLetters, correctWord } =

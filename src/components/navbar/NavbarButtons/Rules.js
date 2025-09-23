@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BiHelpCircle } from "react-icons/bi";
-import Instructions from "../modals/Instructions";
+import Instructions from "../../modals/Instructions";
 
 const Rules = () => {
   const [rules, setRules] = useState(false);

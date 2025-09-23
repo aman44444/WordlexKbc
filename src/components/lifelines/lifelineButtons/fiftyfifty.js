@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { AppContext } from "../../App";
+import { AppContext } from "../../../App";
 
 export default function Fiftyfifty() {
   const [label, setLabel] = useState("50:50");

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../style/./Timer.css";
+import "../game/Timer.css"
 
 const Timer = () => {
   const [timeRemaining, setTimeRemaining] = useState({

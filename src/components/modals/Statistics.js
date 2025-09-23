@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../App";
-import Timer from "../Timer";
-import ProgressBar from "../Progress";
+import Timer from "../game/Timer";
+import ProgressBar from "../game/Progress/Progress";
 
 const Statistics = ({ close }) => {
   const { gameOver } = useContext(AppContext);

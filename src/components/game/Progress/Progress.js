@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
-import { AppContext } from "../App";
-import Prize from "../Prize";
-import "../style/./Progress.css";
+import { AppContext } from "../../../App";
+import Prize from "../../../Prize";
+import "../Progress/Progress.css"
 
 const ProgressBar = () => {
   const {

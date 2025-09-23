@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { IoIosStats } from "react-icons/io";
-import { AppContext } from "../../App";
+import { AppContext } from "../../../App";
 
-import Statistics from "../modals/Statistics";
+import Statistics from "../../modals/Statistics";
 
 const Stats = () => {
   const [openStats, setOpenStats] = useState(false);

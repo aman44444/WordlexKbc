@@ -1,10 +1,10 @@
 import "./App.css";
-import Board from "./components/Board";
-import Keyboard from "./components/Keyboard";
-import { boardDefault, generateWordSet } from "./Words";
+import Board from "./components/game/Board/Board";
+import Keyboard from "./components/game/Keyboard/Keyboard";
+import { boardDefault, generateWordSet } from "./utils/Words";
 import React, { useState, createContext, useEffect } from "react";
-import GameOver from "./components/GameOver";
-import Navbar from "./components/Navbar";
+import GameOver from "./components/game/GameOver";
+import Navbar from "./components/navbar/Navbar";
 import Prize from "./Prize";
 import amitabh2 from './audio/amitabh2.mp3'
 

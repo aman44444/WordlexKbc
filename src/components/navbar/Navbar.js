@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { AppContext } from "../App";
+import { AppContext } from "../../App";
 import Lifeline from "./NavbarButtons/Lifeline";
 import Rules from "./NavbarButtons/Rules";
 import Stats from "./NavbarButtons/Stats";
-import "../style/./Navbar.css";
+import "../navbar/Navbar.css"
 
 const Navbar = () => {
   const { gameOver } = useContext(AppContext);

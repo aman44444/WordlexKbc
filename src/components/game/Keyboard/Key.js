@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { AppContext } from "../App";
-import "../style/./Key.css";
+import { AppContext } from "../../../App";
+import "../Keyboard/Key.css"
 
 const Key = ({ keyVal, bigKey, disabled }) => {
   const { gameOver, onSelectLetter, onDelete, onEnter, keyState } =

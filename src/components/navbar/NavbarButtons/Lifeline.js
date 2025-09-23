@@ -1,6 +1,6 @@
 import React ,{useState}from 'react'
 import {FaHeartPulse} from "react-icons/fa6";
-import LifelineButtons from '../LifelineButtons'
+import LifelineButtons from '../../lifelines/LifelineButtons'
 
 
 const Lifeline = () => {
