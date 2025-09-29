@@ -23,3 +23,6 @@
     background-color: #3a393c;
   }
   
+.letter.correct { background-color: green; }
+.letter.almost { background-color: yellow; }
+.letter.error { background-color: gray; }

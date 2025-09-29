@@ -27,7 +27,7 @@ const Letter = ({ letterPos, attemptVal }) => {
   }, [letter, currAttempt.attempt]);
 
   return (
-    <div className="letter" id={letterState}>
+    <div className={`letter ${letterState ? letterState : ""}`} >
       {letter}
     </div>
   );
