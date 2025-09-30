@@ -16,7 +16,6 @@ const Keyboard = () => {
     onSelectLetter,
     onEnter,
     onDelete,
-    keyState,
   } = useContext(AppContext);
 
   const handleKeyboard = useCallback(
@@ -49,7 +48,7 @@ const Keyboard = () => {
     };
   }, [handleKeyboard]);
 
-  console.log(disabledLetters);
+  // console.log(disabledLetters);
 
   const renderKeys = (keyArray) =>
     keyArray.map((key) => (
@@ -57,7 +56,7 @@ const Keyboard = () => {
     ));
 
   return (
-    <div className="keyboard" onKeyDown={handleKeyboard}>
+    <div className="keyboard">
       <div className="line1">{renderKeys(keys.line1)}</div>
       <div className="line2">{renderKeys(keys.line2)}</div>
       <div className="line3">
