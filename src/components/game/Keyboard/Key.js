@@ -16,10 +16,9 @@ const Key = ({ keyVal, bigKey, disabled }) => {
       onSelectLetter(keyVal);
     }
   };
-
-  const keyClass = `key ${bigKey ? "big" : ""} ${disabled ? "disabled" : ""} ${
-    keyState[keyVal.toLowerCase()]
-  }`;
+  const stateClass = keyState[keyVal.toLowerCase() || ""]
+  const keyClass = `key ${bigKey ? "big" : ""} ${disabled ? "disabled" : ""} 
+  ${stateClass}`;
 
   return (
     <div className={keyClass.trim()} onClick={selectLetter}>

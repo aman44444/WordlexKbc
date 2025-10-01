@@ -43,8 +43,9 @@ nav {
 
   .in-progress {
     font-size: 5px;
-    background-color: red;
+    background-color: #cc0000;
     position: absolute;
+    color: white;
     left: 0;
   }
 
