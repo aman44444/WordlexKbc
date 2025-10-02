@@ -16,7 +16,7 @@ const Stats = () => {
 
   return (
     <div className="icons" onClick={toggleStats}>
-      <IoIosStats size={30} />
+      <IoIosStats />
       {openStats && <Statistics />}
     </div>
   );

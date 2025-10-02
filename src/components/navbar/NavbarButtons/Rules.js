@@ -10,7 +10,7 @@ const Rules = () => {
   };
   return (
     <div className="icons" onClick={toggleRules}>
-      <BiHelpCircle size={30} />
+      <BiHelpCircle  />
       {rules && <Instructions close={setRules} />}
     </div>
   );
