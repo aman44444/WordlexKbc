@@ -4,6 +4,7 @@ import Lifeline from "./NavbarButtons/Lifeline";
 import Rules from "./NavbarButtons/Rules";
 import Stats from "./NavbarButtons/Stats";
 import "../navbar/Navbar.css"
+import Settings from "./NavbarButtons/Settings";
 
 const Navbar = () => {
   const { gameOver } = useContext(AppContext);
@@ -21,7 +22,7 @@ const Navbar = () => {
       <div className="nav-buttons">
         <Rules />
         <Lifeline />
-        <Stats />
+        <Settings/>
       </div>
     </nav>
   );
