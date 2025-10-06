@@ -3,7 +3,7 @@ import { AppContext } from "../../App";
 import Lifeline from "./NavbarButtons/Lifeline";
 import Rules from "./NavbarButtons/Rules";
 import "../navbar/Navbar.css"
-import Settings from "./NavbarButtons/Settings";
+import Settings from "../Settings/Settings";
 
 const Navbar = () => {
   const { gameOver } = useContext(AppContext);

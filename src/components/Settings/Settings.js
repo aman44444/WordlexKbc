@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CiSettings } from "react-icons/ci";
-import SettingsModal from "../../modals/SettingsModal";
+import SettingsModal from "./SettingsModal";
 
 const Settings = () => {
     const [openSettings, setOpenSettings]  = useState(false)
