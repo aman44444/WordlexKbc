@@ -1,21 +1,20 @@
 import "./App.css";
 import Board from "./components/game/Board/Board";
 import Keyboard from "./components/game/Keyboard/Keyboard";
-import { boardDefault, generateWordSet } from "./utils/Words";
-import React, { useState, createContext, useEffect } from "react";
+import  { useState, createContext, useEffect } from "react";
 import GameOver from "./components/game/GameOver";
 import Navbar from "./components/navbar/Navbar";
 import Prize from "./Prize";
 import amitabh2 from './audio/amitabh2.mp3'
 import useWordGenerator from "./hooks/useWordGenerator";
+import useBoard from "./hooks/useBoard";
 
 export const AppContext = createContext();
 
 const App = (props) => {
 
   const {wordSet, correctWord, setWordSet, setCorrectWord} = useWordGenerator();
-  const [board, setBoard] = useState(boardDefault);
-  const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letter: 0 });
+  const {board, setBoard, currAttempt, setCurrAttempt, onDelete, onSelectLetter} = useBoard()
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
@@ -161,28 +160,6 @@ const [keyState, setKeyState] = useState({});
 }
 
 
-  const onDelete = () => {
-    if (currAttempt.letter === 0) return;
-    const newBoard = [...board];
-    newBoard[currAttempt.attempt][currAttempt.letter - 1] = "";
-    setBoard(newBoard);
-    setCurrAttempt({ ...currAttempt, letter: currAttempt.letter-1 });
-  };
-
-  const onSelectLetter = (key) => {
-    if (currAttempt.letter > 4) return;
-    const newBoard = [...board];
-   
-    newBoard[currAttempt.attempt][currAttempt.letter] = key;
-    setBoard(newBoard);
-    setCurrAttempt({
-      attempt: currAttempt.attempt,
-      letter: currAttempt.letter + 1,
-    });
-    
-  };
-
-  
 
   return (
     <div className="App">
