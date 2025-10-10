@@ -8,6 +8,7 @@ import Prize from "./Prize";
 import amitabh2 from './audio/amitabh2.mp3'
 import useWordGenerator from "./hooks/useWordGenerator";
 import useBoard from "./hooks/useBoard";
+import useKeyState from "./hooks/useKeyState";
 
 export const AppContext = createContext();
 
@@ -15,6 +16,7 @@ const App = (props) => {
 
   const {wordSet, correctWord, setWordSet, setCorrectWord} = useWordGenerator();
   const {board, setBoard, currAttempt, setCurrAttempt, onDelete, onSelectLetter} = useBoard()
+  const {keyState, updateKeyState} = useKeyState()
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
@@ -22,7 +24,6 @@ const App = (props) => {
   });
 
 const [prize,setPrize] = useState(false)
-const [keyState, setKeyState] = useState({});
 // const [boardData, setBoardData] = useState([...boardDefault]);
 
 
@@ -73,25 +74,6 @@ const [keyState, setKeyState] = useState({});
     }
 
   }, [gameOver]);
-
-  const updateKeyState = (currWord) => {
-    const newKeyState = { ...keyState };
-
-    for (let i = 0; i < currWord.length; i++) {
-      const letter = currWord[i];
-      if (correctWord.includes(letter)) {
-        if (correctWord[i] === letter) {
-          newKeyState[letter.toLowerCase()] = 'correct';
-        } else if (newKeyState[letter.toLowerCase()] !== 'correct') {
-          newKeyState[letter.toLowerCase()] = 'almost';
-        }
-      } else {
-        newKeyState[letter.toLowerCase()] = 'error';
-      }
-    }
-
-    setKeyState(newKeyState);
-  };
  
  
   // 
