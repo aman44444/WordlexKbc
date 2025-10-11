@@ -16,7 +16,7 @@ const App = (props) => {
 
   const {wordSet, correctWord, setWordSet, setCorrectWord} = useWordGenerator();
   const {board, setBoard, currAttempt, setCurrAttempt, onDelete, onSelectLetter} = useBoard()
-  const {keyState, updateKeyState} = useKeyState()
+  const {keyState, updateKeyState} = useKeyState(correctWord)
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,

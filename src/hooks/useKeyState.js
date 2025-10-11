@@ -1,11 +1,10 @@
 import { useState } from "react";
-import useWordGenerator from "./useWordGenerator";
 
-export default function useKeyState() {
+export default function useKeyState(correctWord) {
 
 const [keyState, setKeyState] = useState({});
  
-const {correctWord} = useWordGenerator();
+
 
  const updateKeyState = (currWord) => {
     const newKeyState = { ...keyState };
