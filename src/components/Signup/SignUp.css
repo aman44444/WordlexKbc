@@ -1,0 +1,14 @@
+.signup-container {
+    width:50%;
+    height: 50%;
+    padding: 1rem;
+    border: 2px solid gray;
+    
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    
+}
+
