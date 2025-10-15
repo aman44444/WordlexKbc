@@ -1,0 +1,54 @@
+.overlay{
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  position: fixed;
+}
+
+.closebtn{
+  font-size: 20px;
+  background-color:#121213;
+  border: none;
+  color: white;
+  position: absolute; 
+  right:0.7rem; 
+  top: 0.7rem; 
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.modal{
+    background-color:#121213;
+    position: absolute;
+    width:20%;
+    height:80vh;
+    line-height:1.4;
+    padding:20px;
+    max-width: 600px;
+    min-width: 300px;
+   font-size: 6px;
+   border-radius: 10px;
+  }
+
+p {
+    margin: 0 0 10px;
+}
+
+strong {
+    color: #b49f39;
+}
+
+.Stats-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+    gap: 2em;
+}
