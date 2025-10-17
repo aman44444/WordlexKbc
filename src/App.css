@@ -3,7 +3,6 @@
   background-color: #121212;
   width: 100vw;
   height: 100vh;
-  /* display: flex; */
   color: white;
 }
 
@@ -22,57 +21,6 @@ body {
   flex-direction: column;
 }
 
-
-/*  */
-/* style for rules modal  */
-/*  */
-
-.modal,.overlay{
-  width:100vw;
-  height: 100vh;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  position: fixed;
-}
-
-.overlay{
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.closebtn{
-  font-size: 20px;
-  background-color:#121213;
-  border: none;
-  color: white;
-  position: absolute;
-  right:0;
-  top: 0;
-  border-radius: 10px;
-}
-
-/*  */
-/* CSS FOR STATATICS MODAL */
-/*  */
-
-
-.stats{
-  background-color:#121213;
-  position: absolute;
-  width:20%;
-  height:80vh;
-  line-height:1.4;
-  padding:20px;
-  max-width: 600px;
-  min-width: 300px;
- font-size: 8px;
- border-radius: 10px;
-}
 
 #dis{
   background-color: #3a393c;
