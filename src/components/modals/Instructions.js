@@ -1,24 +1,10 @@
-import React from "react";
-import "../modals/Instructions.css"
+import ModalWrapper from "./ModalWrapper";
 
-const Instructions = ({ close }) => {
-  const handleClick = (event) => {
-    event.stopPropagation();
-  };
 
+const Instructions = ({close}) => {
   return (
-    <div className="modal" onClick={handleClick}>
-      <div className="overlay">
-        <div className="rules">
-          <button
-            className="closebtn"
-            onClick={() => {
-              close(false);
-            }}
-          >
-            X
-          </button>
-          <p>HOW TO PLAY</p>
+   <ModalWrapper close={close}>
+        <p>HOW TO PLAY</p>
           <section>
             <div>
             <p>
@@ -70,9 +56,9 @@ const Instructions = ({ close }) => {
               </p>
             </div>
           </section>
-        </div>
-      </div>
-    </div>
+   </ModalWrapper>
   );
 };
 export default Instructions;
+
+
