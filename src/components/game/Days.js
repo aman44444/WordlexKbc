@@ -3,7 +3,7 @@ import { AppContext } from "../../App";
 import StepNavigation from "./modals/daysnavigation";
 
 const Days = () => {
-  const { gameOver, labelArray, updateStep, currentStep } =
+  const {labelArray, updateStep, currentStep } =
     useContext(AppContext);
 
   return (
