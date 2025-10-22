@@ -13,17 +13,18 @@ import useKeyState from "./hooks/useKeyState";
 export const AppContext = createContext();
 
 const App = (props) => {
-
+  
   const {wordSet, correctWord, setWordSet, setCorrectWord} = useWordGenerator();
   const {board, setBoard, currAttempt, setCurrAttempt, onDelete, onSelectLetter} = useBoard()
   const {keyState, updateKeyState} = useKeyState(correctWord)
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
-    gameOver: false,
-    guessedWord: false,
-  });
-
-const [prize,setPrize] = useState(false)
+         gameOver: false,
+         guessedWord: false,
+         });
+  const [alertMsg, setAlertMsg] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [prize,setPrize] = useState(false)
 // const [boardData, setBoardData] = useState([...boardDefault]);
 
 
@@ -137,7 +138,11 @@ const [prize,setPrize] = useState(false)
    
 
     } else {
-       alert("Word not found"); // Alert if the word is invalid
+       setAlertMsg("Word not found");
+       setShowAlert(true);
+       setTimeout(() => {
+       setShowAlert(false);
+  }, 1600);
    }
 }
 
@@ -170,6 +175,12 @@ const [prize,setPrize] = useState(false)
         }}
 
       >
+
+        {showAlert && (
+        <div className="alert">
+          {alertMsg}
+         </div>
+          )}
         <Navbar />
         <div className="game">
           <Board />
