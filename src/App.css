@@ -33,6 +33,37 @@ body {
   color:white
 }
 
+.alert {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  padding: 10px 25px;
+  background: #272727;
+  color: white;
+
+  border-radius: 999px; 
+  font-size: 14px;
+  font-weight: 500;
+
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+
+  opacity: 0;
+  animation: fadeInOut 1.3s ease forwards;
+  z-index: 300;
+}
+
+/* animation */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  15% { opacity: 1; transform: translateX(-50%) translateY(0px); }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+
+
 
 @media (max-width: 430px) { 
    
