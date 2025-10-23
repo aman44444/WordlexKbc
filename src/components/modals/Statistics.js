@@ -10,10 +10,8 @@ const Statistics = ({ close }) => {
   return (
    <ModalWrapper close={close}>
        <h1>Statistics</h1>
-
           <h2>Days Progress</h2>
           <ProgressBar />
-
           {gameOver.gameOver && <Timer />}
    </ModalWrapper>
   );

@@ -20,7 +20,7 @@ const Stats = () => {
         onMouseLeave={() => setHover(false)}
         style={{color: hover ? "#528d4e": ""}}
       />
-      {openStats && <Statistics />}
+      {openStats && <Statistics close={setOpenStats}/>}
     </div>
   );
 };
