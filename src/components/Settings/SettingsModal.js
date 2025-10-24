@@ -7,7 +7,7 @@ const SettingsModal = ({close}) => {
       <ModalWrapper close={close}>
                 <h1>Settings</h1>
                 <div className="Stats-div">
-                  <p>Statistics</p>
+                   <p>Statistics</p>
                   <Stats/>
                 </div>
       </ModalWrapper>

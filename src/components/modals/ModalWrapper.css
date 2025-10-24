@@ -52,3 +52,7 @@ strong {
     padding: 5em;
     gap: 2em;
 }
+
+.Stats-div p{
+  font-size: large;
+}
