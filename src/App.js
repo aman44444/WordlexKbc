@@ -185,7 +185,7 @@ const App = (props) => {
         <div className="game">
           <Board />
           {gameOver.gameOver ? <GameOver /> : <Keyboard />}
-          {prize && <Prize closeModal={setPrize}/>}
+          {prize && <Prize close={setPrize}/>}
         </div>
       </AppContext.Provider>
     </div>

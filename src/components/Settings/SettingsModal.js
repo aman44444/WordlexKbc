@@ -8,7 +8,7 @@ const SettingsModal = ({close}) => {
                 <h1>Settings</h1>
                 <div className="Stats-div">
                    <p>Statistics</p>
-                  <Stats/>
+                   <Stats/>
                 </div>
       </ModalWrapper>
     )
