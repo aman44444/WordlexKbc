@@ -9,6 +9,7 @@ import amitabh2 from './audio/amitabh2.mp3'
 import useWordGenerator from "./hooks/useWordGenerator";
 import useBoard from "./hooks/useBoard";
 import useKeyState from "./hooks/useKeyState";
+import { AuthProvider } from "./Context/AuthContext";
 
 export const AppContext = createContext();
 
@@ -150,7 +151,7 @@ const App = (props) => {
 
   return (
     <div className="App">
-     
+     <AuthProvider>
       <AppContext.Provider
         value={{
           board,
@@ -188,6 +189,7 @@ const App = (props) => {
           {prize && <Prize close={setPrize}/>}
         </div>
       </AppContext.Provider>
+    </AuthProvider>
     </div>
   );
 }
