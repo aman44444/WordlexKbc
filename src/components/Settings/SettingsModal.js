@@ -1,8 +1,10 @@
 import ModalWrapper from "../modals/ModalWrapper";
-import Stats from "../navbar/NavbarButtons/Stats";
+import Stats from "../modals/Stats";
+import { useAuth } from "../../Context/AuthContext";
 
 
 const SettingsModal = ({close}) => {
+   const {currentUser, logout} = useAuth();
     return (
       <ModalWrapper close={close}>
                 <h1>Settings</h1>
@@ -10,6 +12,9 @@ const SettingsModal = ({close}) => {
                    <p>Statistics</p>
                    <Stats/>
                 </div>
+                {currentUser && (
+                  <button onClick={logout}>Logout</button>
+                )}
       </ModalWrapper>
     )
 }

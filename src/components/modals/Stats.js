@@ -1,26 +1,23 @@
 import React, {  useState } from "react";
 import { IoIosStats } from "react-icons/io";
-import Statistics from "../../modals/Statistics";
+import Statistics from "./Statistics";
+import { useAuth } from "../../Context/AuthContext";
+import AuthGate from "../auth/AuthGate";
 
 const Stats = () => {
   const [openStats, setOpenStats] = useState(false);
   const [hover , setHover] = useState(false)
-  // const {gameOver,labelArray,
-  //     updateStep,`
-  //     currentStep,} = useContext(AppContext)
-
-  const toggleStats = () => {
-    setOpenStats((prevState) => !prevState);
-  };
+  const {currentUser} = useAuth()
 
   return (
-    <div className="icons" onClick={toggleStats}>
+    <div className="icons" onClick={() => setOpenStats(true)}>
       <IoIosStats 
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{color: hover ? "#528d4e": ""}}
       />
-      {openStats && <Statistics close={setOpenStats}/>}
+      {openStats && (currentUser ?  <Statistics close={setOpenStats}/> : <AuthGate onAuthSuccess={()=> setOpenStats(false)}/>)
+      }
     </div>
   );
 };
