@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import "../Auth.css"
 import { useAuth } from '../../../Context/AuthContext';
 
 const LogIn = ({onSuccess, onSwitch}) => {
@@ -24,18 +25,18 @@ async function handleSubmit (e) {
     } }
 
   return (
-    <div className='Login-form'>
-        <h2>Log In</h2>
+    <div className='auth-form'>
+        <h2 className='heading'>Log In</h2>
         {error && <div>{error}</div>}
         <form onSubmit={handleSubmit}>
             <label>Email</label>
             <input type='email' placeholder='Email' required ref={emailRef}/>
             <label>Password</label>
             <input type='password'  placeholder="Password" required ref={passwordRef}/>
-            <button disabled={loading} type="submit" className='loginButton'>Log in</button>
+            <button disabled={loading} type="submit" className='submitButton'>Log in</button>
         </form>
         <div>
-             Need an Account ? <button type="button" onClick={onSwitch} className='signupLinkButton'>Sign up</button>
+             Need an Account ? <button type="button" onClick={onSwitch} className='linkButton'>Sign up</button>
         </div>
     </div>
   )
