@@ -13,7 +13,7 @@ const SettingsModal = ({close}) => {
                    <Stats/>
                 </div>
                 {currentUser && (
-                  <button onClick={logout}>Logout</button>
+                  <button onClick={logout} className="logoutButton">Logout</button>
                 )}
       </ModalWrapper>
     )

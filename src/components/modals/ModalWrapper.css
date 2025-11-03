@@ -56,3 +56,12 @@ strong {
 .Stats-div p{
   font-size: large;
 }
+
+.logoutButton {
+   cursor: pointer;
+   background-color: #cc0000;
+   border: none;
+   color: white;
+   padding: 0.4rem;
+   border-radius: 0.5rem;
+} 
