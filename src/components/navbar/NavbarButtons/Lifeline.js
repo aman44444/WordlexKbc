@@ -1,24 +1,21 @@
-import React ,{useState}from 'react'
-import {FaHeartPulse} from "react-icons/fa6";
-import LifelineButtons from '../../lifelines/LifelineButtons'
-
+import React, { useState } from "react";
+import { FaHeartPulse } from "react-icons/fa6";
+import LifelineButtons from "../../lifelines/LifelineButtons";
 
 const Lifeline = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const handleClick = (e) => {
-        e.stopPropagation();
-        setIsOpen(prev => !prev); 
-    };
-    
-    return (
-         <div className='icons' onClick={handleClick}>
-            <FaHeartPulse />
-            {isOpen && <LifelineButtons/>}
-         </div>
-         
-    )
-    
-}
+  const handleClick = (e) => {
+    e.stopPropagation();
+    setIsOpen((prev) => !prev);
+  };
+
+  return (
+    <button className="icons" aria-label="Lifelines" onClick={handleClick}>
+      <FaHeartPulse />
+      {isOpen && <LifelineButtons />}
+    </button>
+  );
+};
 
 export default Lifeline;

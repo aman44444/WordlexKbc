@@ -75,6 +75,7 @@ body {
 }
 
 .icons {
-  margin-left: 0;
-  margin: 3px;
+  background: none;
+  color: white;
+  border: none;
 }
