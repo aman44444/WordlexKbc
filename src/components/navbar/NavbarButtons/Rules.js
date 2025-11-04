@@ -9,7 +9,7 @@ const Rules = () => {
     setRules((prevState) => !prevState);
   };
   return (
-    <button className="icons" aria-label="Rules" onClick={toggleRules}>
+    <button type="button" className="icons" aria-label="Rules" onClick={toggleRules}>
       <BiHelpCircle />
       {rules && <Instructions close={setRules} />}
     </button>

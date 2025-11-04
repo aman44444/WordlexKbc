@@ -27,7 +27,7 @@ async function handleSubmit (e) {
   return (
     <div className='auth-form'>
         <h2 className='heading'>Log In</h2>
-        {error && <div>{error}</div>}
+        {error && <div role='alert'>{error}</div>}
         <form onSubmit={handleSubmit}>
             <label>Email</label>
             <input type='email' placeholder='Email' required ref={emailRef}/>
@@ -35,8 +35,8 @@ async function handleSubmit (e) {
             <input type='password'  placeholder="Password" required ref={passwordRef}/>
             <button disabled={loading} type="submit" className='submitButton'>Log in</button>
         </form>
-        <div>
-             Need an Account ? <button type="button" onClick={onSwitch} className='linkButton'>Sign up</button>
+        <div className=''>
+            <span> Need an Account ?</span> <button type="button" onClick={onSwitch} className='linkButton'>Sign up</button>
         </div>
     </div>
   )

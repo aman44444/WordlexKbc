@@ -11,7 +11,7 @@ const Lifeline = () => {
   };
 
   return (
-    <button className="icons" aria-label="Lifelines" onClick={handleClick}>
+    <button type="button" className="icons" aria-label="Lifelines" onClick={handleClick}>
       <FaHeartPulse />
       {isOpen && <LifelineButtons />}
     </button>

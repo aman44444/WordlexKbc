@@ -9,7 +9,7 @@ const Settings = () => {
         setOpenSettings((prevState) => !prevState)
     }
     return (
-        <button className="icons" aria-label="Settings" onClick={toggleSettings}>
+        <button type="button" className="icons" aria-label="Settings" onClick={toggleSettings}>
            <CiSettings />
             {openSettings && <SettingsModal close={setOpenSettings}/>}
         </button>

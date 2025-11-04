@@ -178,7 +178,7 @@ const App = (props) => {
       >
 
         {showAlert && (
-        <div className="alert">
+        <div className="alert" role="alert">
           {alertMsg}
          </div>
           )}

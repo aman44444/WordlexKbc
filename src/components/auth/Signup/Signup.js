@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import "../Auth.css"
 import { useAuth } from '../../../Context/AuthContext';
+import { FaBedPulse } from 'react-icons/fa6';
 
 const Signup = ({onSwitch}) => {
   const emailRef =  useRef()
@@ -23,12 +24,14 @@ async function handleSubmit (e) {
       await signup(emailRef.current.value, passwordRef.current.value)
     } catch{
       setError("failed to create an account")
+    } finally{
+       setLoading(false)
     }  }
 
   return (
     <div className='auth-form'>
         <h2 className='heading'>Sign Up</h2>
-        {error && <div>{error}</div>}
+        {error && <div role="alert">{error}</div>}
         <form onSubmit={handleSubmit}>
             <label>Email</label>
             <input type='email' placeholder='wordlexkbc@gmail.com' required ref={emailRef}/>
@@ -39,7 +42,7 @@ async function handleSubmit (e) {
             <button disabled={loading} type="submit" className='submitButton'>Sign Up</button>
         </form>
         <div>
-          Already have an account? <button type="button" onClick={onSwitch} className='linkButton'>Log in</button>
+          <span>Already have an account?</span> <button type="button" onClick={onSwitch} className='linkButton'>Log in</button>
         </div>
     </div>
   )
