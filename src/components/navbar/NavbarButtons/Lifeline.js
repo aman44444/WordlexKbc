@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaHeartPulse } from "react-icons/fa6";
 import LifelineButtons from "../../lifelines/LifelineButtons";
+import IconButton from "./IconButton";
 
 const Lifeline = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,10 +12,12 @@ const Lifeline = () => {
   };
 
   return (
-    <button type="button" className="icons" aria-label="Lifelines" onClick={handleClick}>
-      <FaHeartPulse />
+    <>
+      <IconButton onClick={handleClick} label={"Lifelines"}>
+           <FaHeartPulse />
+      </IconButton>
       {isOpen && <LifelineButtons />}
-    </button>
+    </>
   );
 };
 

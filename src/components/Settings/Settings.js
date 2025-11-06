@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CiSettings } from "react-icons/ci";
 import SettingsModal from "./SettingsModal";
+import IconButton from "../navbar/NavbarButtons/IconButton";
 
 const Settings = () => {
     const [openSettings, setOpenSettings]  = useState(false)
@@ -9,11 +10,12 @@ const Settings = () => {
         setOpenSettings((prevState) => !prevState)
     }
     return (
-        <button type="button" className="icons" aria-label="Settings" onClick={toggleSettings}>
+      <>
+       <IconButton onClick={toggleSettings} label={"Settings"}>
            <CiSettings />
-            {openSettings && <SettingsModal close={setOpenSettings}/>}
-        </button>
-
+       </IconButton>
+        {openSettings && <SettingsModal close={setOpenSettings}/>}
+      </>
     )
 }
 
