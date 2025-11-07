@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import "../Auth.css"
 import { useAuth } from '../../../Context/AuthContext';
-import { FaBedPulse } from 'react-icons/fa6';
 
 const Signup = ({onSwitch}) => {
   const emailRef =  useRef()
