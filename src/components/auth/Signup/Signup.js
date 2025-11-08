@@ -33,11 +33,11 @@ async function handleSubmit (e) {
         {error && <div role="alert">{error}</div>}
         <form onSubmit={handleSubmit}>
             <label>Email</label>
-            <input type='email' placeholder='wordlexkbc@gmail.com' required ref={emailRef}/>
+            <input type='email' placeholder='Email' required ref={emailRef}/>
             <label>Password</label>
-            <input type='password' required ref={passwordRef}/>
+            <input type='password' required ref={passwordRef}  placeholder="Password"/>
             <label>Password Confirmation</label>
-            <input type='password' required ref={passwordConfirmRef}/>
+            <input type='password' required ref={passwordConfirmRef}  placeholder="Confirm Password"/>
             <button disabled={loading} type="submit" className='submitButton'>Sign Up</button>
         </form>
         <div>

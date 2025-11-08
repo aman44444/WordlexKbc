@@ -102,8 +102,8 @@
 }
 
 .auth-form [role="alert"] {
-  background-color: rgba(204, 0, 0, 0.15);
-  color: #ffb4b4;
+  background-color: rgba(231, 64, 64, 0.647);
+  color: white;
 
   padding: 0.5rem;
   border-radius: 8px;
