@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../../App";
 
 const Doubledip = () => {
-  const { board, currAttempt, setBoard, setCurrAttempt } =
+  const { board, currAttempt, setBoard, setCurrAttempt,gameOver } =
     useContext(AppContext);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [elementId, setElementId] = useState("");
@@ -43,6 +43,7 @@ const Doubledip = () => {
 
   const handleClick = (event) => {
     event.stopPropagation();
+     if (gameOver.gameOver) return;
     setIsButtonDisabled(true);
     event.currentTarget.disabled = true;
     setElementId("dis");

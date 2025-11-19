@@ -3,7 +3,7 @@ import { AppContext } from "../../App";
 import { generateWordSet } from "../../Words";
 
 export default function Flip() {
-  const { setCorrectWord, setWordSet, board, setCurrAttempt } =
+  const { setCorrectWord, setWordSet, board, setCurrAttempt,gameOver } =
     useContext(AppContext);
 
   const [bDisabled, setBDisabled] = useState(() => {
@@ -17,6 +17,7 @@ export default function Flip() {
 
   const handleClick = (event) => {
     event.stopPropagation();
+     if (gameOver.gameOver) return; 
     const newBoard = [...board];
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 6; j++) {
