@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import { IoIosStats } from "react-icons/io";
-import { AppContext } from "../../../App";
-
 import Statistics from "../../modals/Statistics";
 
 const Stats = () => {
   const [openStats, setOpenStats] = useState(false);
+  const [hover , setHover] = useState(false)
   // const {gameOver,labelArray,
-  //     updateStep,
+  //     updateStep,`
   //     currentStep,} = useContext(AppContext)
 
   const toggleStats = () => {
@@ -16,7 +15,11 @@ const Stats = () => {
 
   return (
     <div className="icons" onClick={toggleStats}>
-      <IoIosStats />
+      <IoIosStats 
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        style={{color: hover ? "#528d4e": ""}}
+      />
       {openStats && <Statistics />}
     </div>
   );
