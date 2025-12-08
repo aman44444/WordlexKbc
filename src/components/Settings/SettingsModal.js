@@ -1,4 +1,5 @@
 import Stats from "../navbar/NavbarButtons/Stats";
+import "../Settings/Settings.css"
 
 const SettingsModal = ({close}) => {
     return (
@@ -7,10 +8,8 @@ const SettingsModal = ({close}) => {
               <div className="stats">
                 <button className="closebtn" onClick={()=>{close(false)}}>X</button>
                  <h1>Settings</h1>
-                  <p>Profile </p>
-     
-                <div>
-                  <p>Stats</p>
+                <div className="Stats-div">
+                  <p>Statistics</p>
                   <Stats/>
                 </div>
               </div>
