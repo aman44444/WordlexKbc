@@ -23,6 +23,6 @@
     background-color: #3a393c;
   }
   
-.letter.correct { background-color: green; }
-.letter.almost { background-color: yellow; }
-.letter.error { background-color: gray; }
+.letter.correct { background-color: #528d4e; }
+.letter.almost { background-color: #b49f39; }
+.letter.error { background-color:  #3a393c; }
