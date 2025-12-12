@@ -1,34 +1,45 @@
 import React, { useState, useContext } from "react";
 import { AppContext } from "../../../App";
+import { useLifeline } from "./useLifeLineState";
+
 
 export default function Fiftyfifty() {
-  const [label, setLabel] = useState("50:50");
   const { board, currAttempt, setBoard, setCurrAttempt, correctWord,gameOver } =
     useContext(AppContext);
 
-  const handleClick = (event) => {
-    event.stopPropagation();
-    if (gameOver.gameOver) return;
+    const { disabled, disable } = useLifeline("fiftyfifty");
+  const [label, setLabel] = useState("50:50");
 
-    const updatedBoard = [...board];
-    const wordArray = correctWord.slice(0, 3).toUpperCase().split("");
+  const handleClick = () => {
+    
+    if (disabled || gameOver.gameOver) return;
+ 
+     const rowIndex = currAttempt.attempt;
+    if (rowIndex < 0 || rowIndex >= board.length) return;
 
-    wordArray.forEach((letter, index) => {
-      updatedBoard[currAttempt.attempt][index] = letter;
-    });
+     const revealedLetters = correctWord
+      .slice(0, 3)
+      .toUpperCase()
+      .split("");
+  
+     const updatedBoard = board.map((row, index) =>
+      index === rowIndex
+        ? row.map((cell, i) => revealedLetters[i] ?? cell)
+        : row
+    );
 
     setBoard(updatedBoard);
     setCurrAttempt((prevAttempt) => ({
       ...prevAttempt,
-      letter: prevAttempt.letter + 3,
+      letter: Math.max(prevAttempt.letter, 3),
     }));
-    setLabel(correctWord);
-    event.currentTarget.id = "dis";
+     setLabel(correctWord.toUpperCase());
+    disable();
   };
 
   return (
-    <div className="lifeline" onClick={handleClick} id="">
+    <button className="lifeline" disabled={disabled} onClick={handleClick} type="button">
       {label}
-    </div>
+    </button>
   );
 }
