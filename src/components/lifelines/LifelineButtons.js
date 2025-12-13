@@ -7,9 +7,9 @@ import Doubledip from "./lifelineButtons/Doubledip";
 const LifelineButtons = () => {
   return (
     <div className="lifediv">
-      <Fiftyfifty className="lifeline" />
-      <Flip className="lifeline" />
-      <Doubledip className="lifeline" />
+      <Fiftyfifty/>
+      <Flip  />
+      <Doubledip />
     </div>
   );
 };
