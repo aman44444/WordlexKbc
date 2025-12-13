@@ -1,104 +1,41 @@
-import React, { useState, useContext } from "react";
+import React, {  useContext } from "react";
 import { AppContext } from "../../../App";
+import { useLifeline } from "./useLifeLineState";
 
 const Doubledip = () => {
   const { board, currAttempt, setBoard, setCurrAttempt,gameOver } =
     useContext(AppContext);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [elementId, setElementId] = useState("");
-  // const [btnDisabled,setBtnDisabled] = useState(() => {
-  //     const storedValue = localStorage.getItem("isButtonDisabled");
-  //     return storedValue ? JSON.parse(storedValue) : false;
-  //  })
 
-  // const handleClick = event => {
-  //   event.currentTarget.disabled = true;
-  //   console.log('button clicked');
-  //   const newBoard = [...board];
-  //   for(let i =0 ; i<5; i++){
-  //      newBoard[currAttempt.attempt-1][i] = "";
-  //   }
-  //    setBoard(newBoard);
-
-  //   setCurrAttempt({ attempt: currAttempt.attempt -1, letter: 0 });
-  //   event.currentTarget.id = "dis"
-  //   localStorage.setItem("click",JSON.stringify(btnDisabled))
-  // };
-
-  // const wT = (event) => {
-  // const newBoard = [...board];
-  // for(let i =0 ; i<5; i++){
-  //    newBoard[currAttempt.attempt-1][i] = "";
-  // }
-  //  setBoard(newBoard);
-
-  // setCurrAttempt({ attempt: currAttempt.attempt -1, letter: 0 });
-  //     localStorage.setItem("theme","dis")
-  //    event.currentTarget.id="dis"
-  // }
-
-  // useEffect(() => {
-  //     localStorage.setItem('isButtonDisabled',JSON.stringify(btnDisabled))
-  // },[btnDisabled])
+  const {disabled, disable} = useLifeline("doubledip")
 
   const handleClick = (event) => {
     event.stopPropagation();
-     if (gameOver.gameOver) return;
-    setIsButtonDisabled(true);
-    event.currentTarget.disabled = true;
-    setElementId("dis");
+     if (disabled || gameOver.gameOver) return;
+     
+     const rowIndex = currAttempt.attempt - 1;
+     if (rowIndex < 0 || rowIndex >= board.length) return;
+    
+    const updatedBoard = board.map((row, index) =>
+      index === rowIndex ? row.map(() => "") : row
+    );
 
-    if (currAttempt.attempt > 0 && currAttempt.attempt <= board.length) {
-      const updatedBoard = [...board];
+    setBoard(updatedBoard);
+    setCurrAttempt({ attempt: rowIndex, letter: 0 });
 
-      if (updatedBoard[currAttempt.attempt - 1]) {
-        for (let i = 0; i < 5; i++) {
-          updatedBoard[currAttempt.attempt - 1][i] = "";
-        }
-        setBoard(updatedBoard);
-        setCurrAttempt({ attempt: currAttempt.attempt - 1, letter: 0 });
-      } else {
-        console.error("Row does not exist in the board");
-      }
-    } else {
-      console.error("currAttempt.attempt is out of bounds");
-    }
+  
+    disable()
   };
 
-  //  const [className ,setClassName] = useState("lifeline")
 
-  //  const handleClick = () => {
-  //     const newBoard = [...board];
-  //     for(let i =0 ; i<5; i++){
-  //        newBoard[currAttempt.attempt-1][i] = "";
-  //     }
-  //      setBoard(newBoard);
-
-  //     setCurrAttempt({ attempt: currAttempt.attempt -1, letter: 0 });
-  //     setClassName("lifelinedis")
-
-  //    }
-
-  //  useEffect(()=>{
-  //     localStorage.setItem('class', className)
-  //  },[className])
-
-  //  useEffect(() => {
-  //     const storedClass =localStorage.getItem('class')
-  //     if(storedClass){
-  //         setClassName(storedClass)
-  //     }
-
-  //   },[])
   return (
-    <div
+    <button
       className="lifeline"
-      id={elementId}
       onClick={handleClick}
-      disabled={isButtonDisabled}
+      disabled={disabled}
+      type="button"
     >
       DD
-    </div>
+    </button>
   );
 };
 export default Doubledip;
