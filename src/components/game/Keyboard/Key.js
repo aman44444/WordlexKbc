@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import { AppContext } from "../../../App";
 import "../Keyboard/Key.css"
 
-const Key = ({ keyVal, bigKey, disabled }) => {
+const Key = ({ keyVal, bigKey = false, disabled = false }) => {
   const { gameOver, onSelectLetter, onDelete, onEnter, keyState } =
     useContext(AppContext);
 
   const selectLetter = () => {
-    if (gameOver.gameOver) return;
+    if (disabled || gameOver.gameOver) return;
+
     if (keyVal === "ENTER") {
       onEnter();
     } else if (keyVal === "DELETE") {
@@ -16,14 +17,17 @@ const Key = ({ keyVal, bigKey, disabled }) => {
       onSelectLetter(keyVal);
     }
   };
-  const stateClass = keyState[keyVal.toLowerCase() || ""]
+  
+  
+  const stateClass = keyState[keyVal.toLowerCase()] ?? "";
+
   const keyClass = `key ${bigKey ? "big" : ""} ${disabled ? "disabled" : ""} 
   ${stateClass}`;
 
   return (
-    <div className={keyClass.trim()} onClick={selectLetter}>
+    <button className={keyClass.trim()} onClick={selectLetter} disabled={disabled}>
       {keyVal}
-    </div>
+    </button>
   );
 };
 

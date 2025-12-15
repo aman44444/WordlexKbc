@@ -3,11 +3,15 @@ import Key from "./Key";
 import { AppContext } from "../../../App";
 import "../Keyboard/Keyboard.css"
 
-const keys = {
-  line1: ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
-  line2: ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
-  line3: ["Z", "X", "C", "V", "B", "N", "M"],
-};
+const keys = [
+   ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+   ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+   ["ENTER","Z", "X", "C", "V", "B", "N", "M", "DELETE"],
+];
+
+const LETTER_SET = new Set(
+  keys.flat().filter((k) => k !== "ENTER" && k !== "DELETE")
+);
 
 const Keyboard = () => {
   const {
@@ -23,47 +27,45 @@ const Keyboard = () => {
       if (gameOver.gameOver) return;
 
       const key = event.key.toUpperCase();
+
       if (key === "ENTER") {
         onEnter();
-      } else if (key === "BACKSPACE") {
+        return;
+      } 
+      if (key === "BACKSPACE") {
         onDelete();
-      } else {
-        Object.values(keys)
-          .flat()
-          .forEach((k) => {
-            if (key === k) {
-              onSelectLetter(k);
-            }
-          });
+        return
+      } 
+      if (LETTER_SET.has(key)) {
+        onSelectLetter(key);
       }
+
     },
     [gameOver, onEnter, onDelete, onSelectLetter]
   );
 
   useEffect(() => {
-    document.addEventListener("keydown", handleKeyboard);
+    window.addEventListener("keydown", handleKeyboard);
 
     return () => {
-      document.removeEventListener("keydown", handleKeyboard);
+      window.removeEventListener("keydown", handleKeyboard);
     };
   }, [handleKeyboard]);
 
-  // console.log(disabledLetters);
-
-  const renderKeys = (keyArray) =>
-    keyArray.map((key) => (
-      <Key keyVal={key} key={key} disabled={disabledLetters.includes(key)} />
-    ));
-
   return (
     <div className="keyboard">
-      <div className="line1">{renderKeys(keys.line1)}</div>
-      <div className="line2">{renderKeys(keys.line2)}</div>
-      <div className="line3">
-        <Key keyVal={"ENTER"} bigKey />
-        {renderKeys(keys.line3)}
-        <Key keyVal={"DELETE"} bigKey />
-      </div>
+      {keys.map((row, rowIndex) => (
+        <div className={`line${rowIndex + 1}`} key={rowIndex}>
+          {row.map((key) => (
+            <Key
+              key={key}
+              keyVal={key}
+              disabled={disabledLetters.includes(key)}
+              bigKey={key === "ENTER" || key === "DELETE"}
+            />
+          ))}
+        </div>
+      ))}
     </div>
   );
 };
