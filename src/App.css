@@ -22,12 +22,6 @@ body {
 }
 
 
-/* #dis{
-  background-color: #3a393c;
-  pointer-events: none;  
-} */
-
-
 #days-lose{
   background-color: #3a393c;
   color:white
@@ -55,6 +49,17 @@ body {
   z-index: 300;
 }
 
+.instructions-heading {
+  font-size:medium ;
+}
+
+.instructions-details {
+  padding: 0.7rem;
+}
+
+.instructions-subheading {
+  font-size:small ;
+}
 /* animation */
 @keyframes fadeInOut {
   0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
