@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../App";
 import Timer from "../game/Timer";
 import ProgressBar from "../game/Progress/Progress";
 import ModalWrapper from "./ModalWrapper";
+import { useGame } from "../../Context/GameContext";
 
 const Statistics = ({ close }) => {
-  const { gameOver } = useContext(AppContext);
+  const { gameOver } = useGame();
+
 
   return (
    <ModalWrapper close={close}>
