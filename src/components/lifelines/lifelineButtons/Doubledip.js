@@ -1,10 +1,9 @@
-import React, {  useContext } from "react";
-import { AppContext } from "../../../App";
 import { useLifeline } from "./useLifeLineState";
+import { useGame } from "../../../Context/GameContext";
 
 const Doubledip = () => {
   const { board, currAttempt, setBoard, setCurrAttempt,gameOver } =
-    useContext(AppContext);
+    useGame();
 
   const {disabled, disable} = useLifeline("doubledip")
 
@@ -18,7 +17,6 @@ const Doubledip = () => {
     const updatedBoard = board.map((row, index) =>
       index === rowIndex ? row.map(() => "") : row
     );
-
     setBoard(updatedBoard);
     setCurrAttempt({ attempt: rowIndex, letter: 0 });
 

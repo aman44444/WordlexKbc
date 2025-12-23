@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../../App";
 import { generateWordSet } from "../../../utils/Words";
 import { useLifeline } from "./useLifeLineState";
+import { useGame } from "../../../Context/GameContext";
 
 export default function Flip() {
-  const { setCorrectWord, setWordSet, board, setCurrAttempt,gameOver, setBoard } =
-    useContext(AppContext);
+      const { setCorrectWord, setWordSet, board, setCurrAttempt,gameOver, setBoard } =
+    useGame();
 
   const {disabled, disable} = useLifeline('flip')
 
