@@ -1,18 +1,10 @@
-import React, { useContext, useState, useEffect } from "react";
-import { AppContext } from "../../../App";
 import Prize from "../../../Prize";
 import "../Progress/Progress.css"
+import { useProgress } from "../../../Context/ProgressContext";
 
 const ProgressBar = () => {
-  const {
-    prize,
-    gameOver,
-    setPrize,
-    setCurrentDay,
-    progress,
-    currentDay,
-    setProgress,
-  } = useContext(AppContext);
+
+     const { progress, currentDay } = useProgress();
 
   //   const [progress, setProgress] = useState([0, 0, 0, 0]);
   //   const [currentDay, setCurrentDay] = useState(1);
