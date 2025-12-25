@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import { AppContext } from "../../../App";
+import React, { useEffect } from "react";
 import "../Letter/Letter.css"
+import { useGame } from "../../../Context/GameContext";
 
 const Letter = ({ letterPos, attemptVal }) => {
-  const { board, currAttempt, setDisabledLetters, correctWord } =
-    useContext(AppContext);
+    const { board, currAttempt, setDisabledLetters, correctWord } =
+    useGame();
 
   const letter = board[attemptVal][letterPos];
   const correct = correctWord.toUpperCase()[letterPos] === letter;
