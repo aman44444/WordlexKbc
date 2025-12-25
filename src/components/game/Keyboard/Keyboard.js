@@ -1,7 +1,10 @@
-import React, { useCallback, useEffect, useContext } from "react";
+import React, { useCallback, useEffect} from "react";
 import Key from "./Key";
-import { AppContext } from "../../../App";
 import "../Keyboard/Keyboard.css"
+import { useGame } from "../../../Context/GameContext";
+
+import useGameActions from "../../../hooks/useGameActions";
+
 
 const keys = [
    ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -14,13 +17,10 @@ const LETTER_SET = new Set(
 );
 
 const Keyboard = () => {
-  const {
-    disabledLetters,
+  const { onSelectLetter , disabledLetters,
     gameOver,
-    onSelectLetter,
-    onEnter,
-    onDelete,
-  } = useContext(AppContext);
+    onDelete, } = useGame();
+    const onEnter = useGameActions();
 
   const handleKeyboard = useCallback(
     (event) => {

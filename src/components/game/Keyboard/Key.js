@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../../App";
 import "../Keyboard/Key.css"
+import { useGame } from "../../../Context/GameContext";
+import useGameActions from "../../../hooks/useGameActions";
 
 const Key = ({ keyVal, bigKey = false, disabled = false }) => {
-  const { gameOver, onSelectLetter, onDelete, onEnter, keyState } =
-    useContext(AppContext);
+  const { gameOver, onSelectLetter, onDelete, keyState } =
+    useGame();
 
+    const onEnter = useGameActions();
   const selectLetter = () => {
     if (disabled || gameOver.gameOver) return;
 
