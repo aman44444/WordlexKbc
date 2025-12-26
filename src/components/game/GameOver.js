@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../App";
+import { useGame } from "../../Context/GameContext";
 
 const GameOver = () => {
-  const { currAttempt, gameOver, correctWord } = useContext(AppContext);
+  const { currAttempt, gameOver, correctWord } = useGame()
 
   return (
     <div className="gameOver">

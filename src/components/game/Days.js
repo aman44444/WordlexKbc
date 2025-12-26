@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../App";
 import StepNavigation from "./modals/daysnavigation";
+import { useGame } from "../../Context/GameContext";
 
 const Days = () => {
   const {labelArray, updateStep, currentStep } =
-    useContext(AppContext);
+    useGame();
 
   return (
     <div>
