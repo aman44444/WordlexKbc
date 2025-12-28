@@ -4,7 +4,7 @@ import { useUI } from "../Context/UIContext";
 import { useProgress } from "../Context/ProgressContext";
 
 export default function useGameActions() {
-  const { board, currAttempt, setCurrAttempt, wordSet, correctWord, updateKeyState } = useGame();
+  const { board, currAttempt, setCurrAttempt, wordSet, correctWord, updateKeyState,setGameOver } = useGame();
   const { setAlert, setPrize, playWinSound } = useUI();
   const { setProgress, setCurrentDay, currentDay } = useProgress();
 
@@ -24,6 +24,7 @@ export default function useGameActions() {
     if (word === correctWord) {
       setPrize(true);
       playWinSound();
+       setGameOver({ gameOver: true, guessedWord: true });
       setProgress(p => {
         const n = [...p];
         n[currentDay - 1] = 100;
@@ -34,6 +35,7 @@ export default function useGameActions() {
     }
 
     if (currAttempt.attempt === 5) {
+       setGameOver({ gameOver: true, guessedWord: false });
       setCurrentDay(1);
       return;
     }
