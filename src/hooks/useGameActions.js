@@ -19,13 +19,15 @@ export default function useGameActions() {
       return;
     }
 
-    updateKeyState(word);
+  
 
     if (word === correctWord) {
-      setPrize(true);
-      playWinSound();
-       setGameOver({ gameOver: true, guessedWord: true });
-      setProgress(p => {
+        updateKeyState(word);
+        setCurrAttempt(a => ({ attempt: a.attempt + 1, letter: 0 }));
+        setPrize(true);
+        playWinSound();
+    
+        setProgress(p => {
         const n = [...p];
         n[currentDay - 1] = 100;
         return n;
