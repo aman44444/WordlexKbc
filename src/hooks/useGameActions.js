@@ -24,15 +24,21 @@ export default function useGameActions() {
     if (word === correctWord) {
         updateKeyState(word);
         setCurrAttempt(a => ({ attempt: a.attempt + 1, letter: 0 }));
-        setPrize(true);
         playWinSound();
     
-        setProgress(p => {
-        const n = [...p];
-        n[currentDay - 1] = 100;
-        return n;
-      });
-      setCurrentDay(d => Math.min(d + 1, 7));
+        setTimeout(() => {
+           setPrize(true);
+           setProgress(p => {
+           const n = [...p];
+           n[currentDay - 1] = 100;
+           return n;
+          })
+          
+        setCurrentDay(d => Math.min(d + 1, 7));
+        
+      
+      },2000);
+  
       return;
     }
 
