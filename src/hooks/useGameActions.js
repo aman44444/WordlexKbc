@@ -24,6 +24,7 @@ export default function useGameActions() {
     if (word === correctWord) {
         updateKeyState(word);
         setCurrAttempt(a => ({ attempt: a.attempt + 1, letter: 0 }));
+        setGameOver({ gameOver: true, guessedWord: true });  
         playWinSound();
     
         setTimeout(() => {
