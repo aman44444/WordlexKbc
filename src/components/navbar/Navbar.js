@@ -14,7 +14,7 @@ const Navbar = () => {
       </div>
       <div className="animate__bounceIn">
         <h1 id="wordle">Wordle </h1>
-        <p>x</p>
+        <span aria-hidden="true">x</span>
         <h1 id={gameOver.guessedWord ? "kbcwin" : "kbc"}>KBC</h1>
       </div>
       <div className="nav-buttons">
