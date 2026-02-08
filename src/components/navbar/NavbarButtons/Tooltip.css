@@ -55,3 +55,9 @@
   outline: none;
   cursor: pointer;
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .tooltip {
+    display: none;
+  }
+}
