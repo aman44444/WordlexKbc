@@ -1,0 +1,23 @@
+.instructions-heading {
+  font-size: medium;
+}
+.instructions-subheading {
+  font-size: Small;
+}
+
+.instructions-details {
+  padding: 0.7rem;
+}
+
+.newWord {
+  color: #528d4e;
+}
+
+@media (max-width: 430px) {
+  .instructions-heading {
+    font-size: small;
+  }
+  .instructions-subheading {
+    font-size: x-small;
+  }
+}
