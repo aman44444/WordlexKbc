@@ -1,4 +1,3 @@
-import React from "react";
 import Letter from "../Letter/Letter";
 import "../Board/Board.css"
 

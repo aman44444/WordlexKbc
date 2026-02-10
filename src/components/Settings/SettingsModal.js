@@ -1,5 +1,5 @@
 import ModalWrapper from "../modals/ModalWrapper";
-import Stats from "../modals/Stats";
+import Stats from "../modals/Statistics/Stats";
 import { useAuth } from "../../Context/AuthContext";
 
 
