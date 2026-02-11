@@ -1,4 +1,5 @@
 import ModalWrapper from "../ModalWrapper";
+import "../Instructions/Instructions.css"
 
 const Instructions = ({close}) => {
   return (
