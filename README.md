@@ -10,13 +10,3 @@ A word-guessing game inspired by **Wordle**, enhanced with **Kaun Banega Crorepa
 
 Instead of relying purely on guessing, players must **think strategically about when to use lifelines**, making the game more engaging and tactical.
 
-
----
-
-## 💡 Challenges Faced
-
-* Designing **lifeline logic without breaking game balance**
-* Managing **state between guesses and lifeline usage**
-* Avoiding overpowered hints (game becoming too easy)
-* Handling edge cases (duplicate letters, partial reveals)
-
