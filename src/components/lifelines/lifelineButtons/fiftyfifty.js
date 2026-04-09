@@ -33,7 +33,7 @@ export default function Fiftyfifty() {
       ...prevAttempt,
       letter: Math.max(prevAttempt.letter, 3),
     }));
-     setLabel(correctWord.toUpperCase());
+    //  setLabel(correctWord.toUpperCase());
     disable();
   };
 
