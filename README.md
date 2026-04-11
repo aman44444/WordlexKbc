@@ -11,6 +11,15 @@ A word-guessing game inspired by **Wordle**, enhanced with **Kaun Banega Crorepa
 Instead of relying purely on guessing, players must **think strategically about when to use lifelines**, making the game more engaging and tactical.
 
 ---
+## 📸 Screenshots
+
+### Home Page
+![Home Page](./public/screenshots/home.png)
+
+### Projects Page
+![Projects Page](./public/screenshots/lifeline.png)
+
+---
 
 ## 🎮 How to Play
 
