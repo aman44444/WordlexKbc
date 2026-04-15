@@ -13,40 +13,49 @@ export const GameProvider = ({ children }) => {
   const [gameOver, setGameOver] = useState({ gameOver: false, guessedWord: false });
   const [disabledLetters, setDisabledLetters] = useState([]);
   
-  useEffect(() => {
+useEffect(() => {
   try {
     const saved = localStorage.getItem("wordleGame");
     if (!saved) return;
 
     const parsed = JSON.parse(saved);
+    const today = new Date().toDateString();
 
-    if (parsed.board) setBoard(parsed.board);
-    if (parsed.currAttempt) setCurrAttempt(parsed.currAttempt);
-    if (parsed.correctWord) setCorrectWord(parsed.correctWord);
-    if (parsed.disabledLetters) setDisabledLetters(parsed.disabledLetters);
-    if (parsed.gameOver) setGameOver(parsed.gameOver);
+    //  reset if new day
+    if (parsed.date !== today) {
+      localStorage.removeItem("wordleGame");
+      return;
+    }
+
+    // restore state
+    setCorrectWord(parsed.correctWord);
+    setDisabledLetters(parsed.disabledLetters);
+    setGameOver(parsed.gameOver);
 
   } catch (err) {
-    console.error("Failed to load game:", err);
+    console.error(err);
     localStorage.removeItem("wordleGame");
   }
 }, []);
 
-
 useEffect(() => {
+  if (!correctWord) return; 
+  const today = new Date().toDateString();
+
   const gameState = {
     board,
     currAttempt,
     correctWord,
     disabledLetters,
     gameOver,
+    date: today, 
   };
 
   localStorage.setItem("wordleGame", JSON.stringify(gameState));
 }, [board, currAttempt, correctWord, disabledLetters, gameOver]);
 
   const value = useMemo(() => ({
-board,
+    board,
     setBoard,
     currAttempt,
     setCurrAttempt,
