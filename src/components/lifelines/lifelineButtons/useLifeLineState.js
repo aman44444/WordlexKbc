@@ -1,23 +1,24 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export function useLifeline(key) {
-  const [disabled, setDisabled] = useState(false);
+  const storageKey = `lifeline-${key}`;
 
-  // const disable = () => setDisabled(true);
-  // const enable = () => setDisabled(false);
+  const [disabled, setDisabled] = useState(() => {
+    return localStorage.getItem(storageKey) === "true";
+  });
 
-  // useEffect(() => {
-  //   const stored = sessionStorage.getItem(`lifeline-${key}`);
-  //   if (stored === "true") setDisabled(true);
-  // }, [key]);
+  useEffect(() => {
+    localStorage.setItem(storageKey, disabled);
+  }, [storageKey, disabled]);
 
-  // useEffect(() => {
-  //   sessionStorage.setItem(`lifeline-${key}`, disabled);
-  // }, [key, disabled]);
+  const disable = useCallback(() => {
+    setDisabled(true);
+  }, []);
 
-  
-  const disable = useCallback(() => setDisabled(true), []);
-  const reset = useCallback(() => setDisabled(false), []);
+  const reset = useCallback(() => {
+    setDisabled(false);
+    localStorage.removeItem(storageKey); 
+  }, [storageKey]);
 
   return { disabled, disable, reset };
 }

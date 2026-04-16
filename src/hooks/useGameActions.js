@@ -49,8 +49,12 @@ export default function useGameActions() {
 
     if (currAttempt.attempt === 5) {
       setCurrAttempt((a) => ({ attempt: a.attempt + 1, letter: 0 }));
-
       setGameOver({ gameOver: true, guessedWord: false });
+
+      localStorage.removeItem("lifeline-doubledip");
+      localStorage.removeItem("lifeline-fiftyfifty");
+      localStorage.removeItem("lifeline-flip");
+
       setCurrentDay(1);
       return;
     }
