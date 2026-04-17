@@ -33,17 +33,26 @@ export default function useGameActions() {
       setGameOver({ gameOver: true, guessedWord: true });
       playWinSound();
 
+      setProgress((prev) => {
+        const updated = [...prev];
+        updated[currentDay - 1] = 100;
+
+        localStorage.setItem(
+          "progressData",
+          JSON.stringify({
+            progress: updated,
+            currentDay: Math.min(currentDay + 1, 7),
+          }),
+        );
+
+        return updated;
+      });
+
+      setCurrentDay((d) => Math.min(d + 1, 7));
+
       setTimeout(() => {
         setPrize(true);
-        setProgress((p) => {
-          const n = [...p];
-          n[currentDay - 1] = 100;
-          return n;
-        });
-
-        setCurrentDay((d) => Math.min(d + 1, 7));
       }, 2000);
-
       return;
     }
 
@@ -55,9 +64,22 @@ export default function useGameActions() {
       localStorage.removeItem("lifeline-fiftyfifty");
       localStorage.removeItem("lifeline-flip");
 
+      setProgress([0, 0, 0, 0, 0, 0, 0]);
       setCurrentDay(1);
+
+      localStorage.removeItem("progressData");
       return;
     }
     setCurrAttempt((a) => ({ attempt: a.attempt + 1, letter: 0 }));
-  }, [board, currAttempt, correctWord, wordSet, currentDay]);
+  }, [
+    board,
+    currAttempt,
+    correctWord,
+    wordSet,
+    currentDay,
+    setProgress,
+    setCurrentDay,
+    setGameOver,
+    setCurrAttempt,
+  ]);
 }
