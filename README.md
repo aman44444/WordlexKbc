@@ -14,9 +14,7 @@ Instead of relying purely on guessing, players must **think strategically about 
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page](./public/screenshots/home.png)
 
-### Projects Page
 ![Projects Page](./public/screenshots/lifeline.png)
 
 ---
