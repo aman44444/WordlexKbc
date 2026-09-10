@@ -103,7 +103,6 @@ https://wordlexkbc.netlify.app/
 ---
 
 
-
 ##  Tech Stack
 
 * **Frontend:** React.js 
@@ -115,7 +114,6 @@ https://wordlexkbc.netlify.app/
 
 ##  Project Highlights
 
-* Combines **two different game mechanics** into one product
 * Focus on **user engagement and retention**
 * Clean and modular component structure
 * Real-world UI/UX thinking applied
