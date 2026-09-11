@@ -81,5 +81,9 @@ export default function useGameActions() {
     setCurrentDay,
     setGameOver,
     setCurrAttempt,
+    playWinSound,
+    setAlert,
+    setPrize,
+    updateKeyState,
   ]);
 }

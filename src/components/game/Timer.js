@@ -8,24 +8,24 @@ const Timer = () => {
     seconds: 0,
   });
 
-  const getNextMidnight = () => {
-    const now = new Date();
-    const nextMidnight = new Date(now);
-    nextMidnight.setHours(24, 0, 0, 0); // Set time to next midnight
-    return nextMidnight;
-  };
+  useEffect(() => {
+   const getNextMidnight = () => {
+     const now = new Date();
+     const nextMidnight = new Date(now);
+     nextMidnight.setHours(24, 0, 0, 0); // Set time to next midnight
+     return nextMidnight;
+   };
 
-  const getTime = () => {
-    const time = getNextMidnight() - Date.now();
+   const getTime = () => {
+     const time = getNextMidnight() - Date.now();
 
-    setTimeRemaining({
+      setTimeRemaining({
       hours: Math.floor((time / (1000 * 60 * 60)) % 24),
       minutes: Math.floor((time / 1000 / 60) % 60),
       seconds: Math.floor((time / 1000) % 60),
-    });
-  };
+      });
+   };
 
-  useEffect(() => {
     getTime();
     const interval = setInterval(getTime, 1000);
     return () => clearInterval(interval);

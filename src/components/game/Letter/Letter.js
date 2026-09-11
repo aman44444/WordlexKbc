@@ -21,10 +21,9 @@ const Letter = ({ letterPos, attemptVal }) => {
       !correct &&
       !almost
     ) {
-      console.log(letter);
       setDisabledLetters((prev) => [...prev, letter]);
     }
-  }, [letter, currAttempt.attempt]);
+  }, [letter, currAttempt.attempt, attemptVal, correct, almost, setDisabledLetters]);
 
   return (
     <div className={`letter ${letterState ? letterState : ""}`}>{letter}</div>

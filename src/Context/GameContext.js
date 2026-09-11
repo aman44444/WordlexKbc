@@ -36,7 +36,7 @@ useEffect(() => {
     console.error(err);
     localStorage.removeItem("wordleGame");
   }
-}, []);
+}, [setCorrectWord]);
 
 useEffect(() => {
   if (!correctWord) return; 
@@ -83,7 +83,15 @@ useEffect(() => {
     correctWord,
     keyState,
     gameOver,
-    disabledLetters
+    disabledLetters,
+    onDelete, 
+    onSelectLetter, 
+    setBoard, 
+    setCorrectWord, 
+    setCurrAttempt, 
+    setWordSet, 
+    updateKeyState, 
+    wordSet
   ]);
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

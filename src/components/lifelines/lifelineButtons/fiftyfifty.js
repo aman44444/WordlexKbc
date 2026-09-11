@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import { useLifeline } from "./useLifeLineState";
 import { useGame } from "../../../Context/GameContext";
 
@@ -7,8 +7,8 @@ export default function Fiftyfifty() {
   const { board, currAttempt, setBoard, setCurrAttempt, correctWord,gameOver } =
     useGame();
 
-    const { disabled, disable } = useLifeline("fiftyfifty");
-  const [label, setLabel] = useState("50:50");
+  const { disabled, disable } = useLifeline("fiftyfifty");
+  const  label = "50:50"
 
   const handleClick = () => {
     
