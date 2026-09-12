@@ -1,5 +1,5 @@
-import ScratchRewardCard from "./components/game/Scratchcard";
-import ModalWrapper from "./components/modals/ModalWrapper";
+import ScratchRewardCard from "../game/Scratchcard";
+import ModalWrapper from "./ModalWrapper";
 
 const Prize = ({ close }) => {
   return (
