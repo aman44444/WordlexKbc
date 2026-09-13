@@ -98,7 +98,7 @@ Inspired by KBC, you get **limited-use lifelines** to help you win:
 
 ##  Demo
 
-https://wordlexkbc.netlify.app/
+https://wordlexkbc.vercel.app/
 
 ---
 
