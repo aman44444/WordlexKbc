@@ -24,8 +24,9 @@ const ScratchRewardCard = () => {
 
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left || e.touches[0].clientX - rect.left;
-    const y = e.clientY - rect.top || e.touches[0].clientY - rect.top;
+    const point = e.touches?.[0] ?? e;
+    const x = (point.clientX - rect.left) * canvas.width / rect.width;
+    const y = (point.clientY - rect.top) * canvas.height / rect.height;
 
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
@@ -33,7 +34,11 @@ const ScratchRewardCard = () => {
     ctx.fill();
 
    
-    const scratched = ctx.getImageData(0, 0, canvas.width, canvas.height).data.reduce((acc, val) => acc + (val === 0 ? 1 : 0), 0);
+    const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+    let scratched = 0;
+    for (let i = 3; i < pixels.length; i += 4) {
+      if (pixels[i] === 0) scratched++;
+    }
     if (scratched > (canvas.width * canvas.height) / 2) {
       setScratched(true);
     }
