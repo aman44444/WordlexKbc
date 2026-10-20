@@ -3,7 +3,7 @@ import Navbar from "./components/navbar/Navbar";
 import Board from "./components/game/Board/Board";
 import Keyboard from "./components/game/Keyboard/Keyboard";
 import GameOver from "./components/game/GameOver";
-import Prize from "./Prize";
+import Prize from "./components/modals/Prize";
 
 import { GameProvider, useGame } from "./Context/GameContext";
 import { ProgressProvider } from "./Context/ProgressContext";
