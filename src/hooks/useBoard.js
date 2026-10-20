@@ -20,14 +20,14 @@ export default function useBoard() {
 
   const savedState = getInitialState();
 
-  const [board, setBoard] = useState(savedState?.board || boardDefault);
+  const [board, setBoard] = useState(savedState?.board || boardDefault.map((row) => [...row]));
 
   const [currAttempt, setCurrAttempt] = useState(
     savedState?.currAttempt || { attempt: 0, letter: 0 },
   );
   const onDelete = () => {
     if (currAttempt.letter === 0) return;
-    const newBoard = [...board];
+    const newBoard = board.map((row) => [...row]);
     newBoard[currAttempt.attempt][currAttempt.letter - 1] = "";
     setBoard(newBoard);
     setCurrAttempt({ ...currAttempt, letter: currAttempt.letter - 1 });
@@ -35,7 +35,7 @@ export default function useBoard() {
 
   const onSelectLetter = (key) => {
     if (currAttempt.letter > 4) return;
-    const newBoard = [...board];
+    const newBoard = board.map((row) => [...row]);
 
     newBoard[currAttempt.attempt][currAttempt.letter] = key;
     setBoard(newBoard);

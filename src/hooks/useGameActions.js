@@ -10,14 +10,14 @@ export default function useGameActions() {
     setCurrAttempt,
     wordSet,
     correctWord,
-    updateKeyState,
+    gameOver,
     setGameOver,
   } = useGame();
   const { setAlert, setPrize, playWinSound } = useUI();
   const { setProgress, setCurrentDay, currentDay } = useProgress();
 
   return useCallback(() => {
-    if (currAttempt.letter !== 5) return;
+    if (gameOver.gameOver || currAttempt.letter !== 5) return;
 
     let word = board[currAttempt.attempt].join("").toUpperCase();
 
@@ -28,7 +28,7 @@ export default function useGameActions() {
     }
 
     if (word === correctWord) {
-      updateKeyState(word);
+
       setCurrAttempt((a) => ({ attempt: a.attempt + 1, letter: 0 }));
       setGameOver({ gameOver: true, guessedWord: true });
       playWinSound();
@@ -50,9 +50,7 @@ export default function useGameActions() {
 
       setCurrentDay((d) => Math.min(d + 1, 7));
 
-      setTimeout(() => {
-        setPrize(true);
-      }, 2000);
+      if ([3, 5, 7].includes(currentDay)) setPrize(true);
       return;
     }
 
@@ -84,6 +82,6 @@ export default function useGameActions() {
     playWinSound,
     setAlert,
     setPrize,
-    updateKeyState,
+    gameOver,
   ]);
 }

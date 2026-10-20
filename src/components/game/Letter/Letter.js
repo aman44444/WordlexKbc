@@ -1,33 +1,12 @@
-import React, { useEffect } from "react";
 import "../Letter/Letter.css";
 import { useGame } from "../../../Context/GameContext";
+import { scoreGuess } from "../../../utils/scoreGuess";
 
 const Letter = ({ letterPos, attemptVal }) => {
-  const { board, currAttempt, setDisabledLetters, correctWord } = useGame();
-
-  const letter = board[attemptVal][letterPos];
-  const correct = correctWord.toUpperCase()[letterPos] === letter;
-  const almost =
-    !correct && letter !== "" && correctWord.toUpperCase().includes(letter);
-
-  const letterState =
-  currAttempt.attempt > attemptVal &&
-  (correct ? "correct" : almost ? "almost" : "error");
-
-  useEffect(() => {
-    if (
-      letter !== "" &&
-      currAttempt.attempt > attemptVal &&
-      !correct &&
-      !almost
-    ) {
-      setDisabledLetters((prev) => [...prev, letter]);
-    }
-  }, [letter, currAttempt.attempt, attemptVal, correct, almost, setDisabledLetters]);
-
-  return (
-    <div className={`letter ${letterState ? letterState : ""}`}>{letter}</div>
-  );
+  const { board, currAttempt, correctWord } = useGame();
+  const row = board[attemptVal];
+  const state = currAttempt.attempt > attemptVal
+    ? scoreGuess(row.join(""), correctWord)[letterPos] : "";
+  return <div className={`letter ${state}`}>{row[letterPos]}</div>;
 };
-
 export default Letter;

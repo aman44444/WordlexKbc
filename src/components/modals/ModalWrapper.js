@@ -4,7 +4,7 @@ const ModalWrapper = ({ children,close }) => {
 
   return (
       <div className="overlay">
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <div className="modal" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
           <button className="closebtn" onClick={()=> close(false)}>X</button>
            {children}
         </div>

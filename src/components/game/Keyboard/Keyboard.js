@@ -25,14 +25,19 @@ const Keyboard = () => {
   const handleKeyboard = useCallback(
     (event) => {
       if (gameOver.gameOver) return;
+      if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey ||
+          event.isComposing || document.querySelector('[role="dialog"]') ||
+          event.target?.closest?.('input, textarea, select, [contenteditable="true"]')) return;
 
       const key = event.key.toUpperCase();
 
       if (key === "ENTER") {
+        event.preventDefault();
         onEnter();
         return;
       } 
       if (key === "BACKSPACE") {
+        event.preventDefault();
         onDelete();
         return
       } 

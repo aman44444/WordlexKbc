@@ -5,13 +5,18 @@ export default function useWordGenerator() {
   const [correctWord, setCorrectWord] = useState("");
 
   useEffect(() => {
-    const saved = localStorage.getItem("wordleGame");
+    let saved;
+    try {
+      saved = JSON.parse(localStorage.getItem("wordleGame"));
+    } catch {
+      localStorage.removeItem("wordleGame");
+    }
 
     generateWordSet().then((words) => {
       setWordSet(words.wordSet);
 
       if (saved) {
-        const parsed = JSON.parse(saved);
+        const parsed = saved;
         const today = new Date().toDateString();
 
         if (parsed.date === today && parsed.correctWord) {
