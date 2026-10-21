@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaHeartPulse } from "react-icons/fa6";
 import LifelineButtons from "../../lifelines/LifelineButtons";
-import IconButton from "./IconButton";
+import IconButton from "./IconButton/IconButton";
 
 const Lifeline = () => {
   const [isOpen, setIsOpen] = useState(false);

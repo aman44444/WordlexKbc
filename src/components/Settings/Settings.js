@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CiSettings } from "react-icons/ci";
 import SettingsModal from "./SettingsModal";
-import IconButton from "../navbar/NavbarButtons/IconButton";
+import IconButton from "../navbar/NavbarButtons/IconButton/IconButton";
 
 const Settings = () => {
     const [openSettings, setOpenSettings]  = useState(false)

@@ -55,11 +55,11 @@ nav p {
   height: 28px;
 }
 
-  span {
-    margin: 10px;
-    font-size: 1.5em;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+span {
+  margin: 10px;
+  font-size: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 @media (max-width: 430px) {
   nav h1 {
@@ -75,15 +75,13 @@ nav p {
   }
 
   .nav-buttons {
-    display: flex;
-    right: 0;
-    gap: 2px;
+    right: 8px;
+    gap: 4px;
   }
 
-  span {
-    margin: 6px;
+  nav .animate__bounceIn > span {
+    margin: 0 4px;
     font-size: 1em;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
   .icons svg {
