@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { FiInfo } from "react-icons/fi";
 import ModalWrapper from "../modals/ModalWrapper";
 import Stats from "../modals/Statistics/Stats";
+import Statistics from "../modals/Statistics/Statistics";
+import AuthGate from "../auth/AuthGate";
 import Tooltip from "../common/Tooltip";
 import { useAuth } from "../../Context/AuthContext";
 import { useUI } from "../../Context/UIContext";
@@ -9,6 +12,15 @@ import "./SettingsModal.css";
 const SettingsModal = ({ close }) => {
   const { currentUser, logout } = useAuth();
   const { soundEnabled, setSoundEnabled } = useUI();
+  const [view, setView] = useState("settings");
+
+  if (view === "auth") {
+    return <AuthGate onAuthSuccess={() => { setView("settings"); close(false); }} />;
+  }
+
+  if (view === "statistics") {
+    return <Statistics close={close} />;
+  }
 
   return (
     <ModalWrapper close={close}>
@@ -16,7 +28,7 @@ const SettingsModal = ({ close }) => {
 
       <div className="Stats-div">
         <p>Statistics</p>
-        <Stats />
+        <Stats onOpen={() => setView(currentUser ? "statistics" : "auth")} />
       </div>
 
       <div className="setting-row">
