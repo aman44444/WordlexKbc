@@ -14,7 +14,7 @@ export default function useGameActions() {
     setGameOver,
   } = useGame();
   const { setAlert, setPrize, playWinSound } = useUI();
-  const { setProgress, setCurrentDay, currentDay } = useProgress();
+  const { setProgress, setCurrentDay, setLastPlayedDate, currentDay } = useProgress();
 
   return useCallback(() => {
     if (gameOver.gameOver || currAttempt.letter !== 5) return;
@@ -28,27 +28,38 @@ export default function useGameActions() {
     }
 
     if (word === correctWord) {
-
       setCurrAttempt((a) => ({ attempt: a.attempt + 1, letter: 0 }));
       setGameOver({ gameOver: true, guessedWord: true });
       playWinSound();
 
+      const completedRun = currentDay === 7;
+      const today = new Date().toDateString();
+
       setProgress((prev) => {
-        const updated = [...prev];
-        updated[currentDay - 1] = 100;
+        const updated = completedRun ? [0, 0, 0, 0, 0, 0, 0] : [...prev];
+
+        if (!completedRun) updated[currentDay - 1] = 100;
 
         localStorage.setItem(
           "progressData",
           JSON.stringify({
             progress: updated,
-            currentDay: Math.min(currentDay + 1, 7),
+            currentDay: completedRun ? 1 : Math.min(currentDay + 1, 7),
+            lastPlayedDate: today,
           }),
         );
 
         return updated;
       });
+      setLastPlayedDate(today);
 
-      setCurrentDay((d) => Math.min(d + 1, 7));
+      setCurrentDay((day) => (completedRun ? 1 : Math.min(day + 1, 7)));
+
+      if (completedRun) {
+        localStorage.removeItem("lifeline-doubledip");
+        localStorage.removeItem("lifeline-fiftyfifty");
+        localStorage.removeItem("lifeline-flip");
+      }
 
       if ([3, 5, 7].includes(currentDay)) setPrize(true);
       return;
@@ -64,6 +75,7 @@ export default function useGameActions() {
 
       setProgress([0, 0, 0, 0, 0, 0, 0]);
       setCurrentDay(1);
+      setLastPlayedDate(new Date().toDateString());
 
       localStorage.removeItem("progressData");
       return;
@@ -77,6 +89,7 @@ export default function useGameActions() {
     currentDay,
     setProgress,
     setCurrentDay,
+    setLastPlayedDate,
     setGameOver,
     setCurrAttempt,
     playWinSound,
