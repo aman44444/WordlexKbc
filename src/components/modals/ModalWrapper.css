@@ -24,6 +24,25 @@
   cursor: pointer;
 }
 
+.backbtn {
+  font-size: 24px;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  color: white;
+  position: absolute;
+  left: 0.7rem;
+  top: 0.7rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.backbtn:hover,
+.backbtn:focus-visible {
+  color: #b49f39;
+}
+
 .modal{
     background-color:#121213;
     position: absolute;

@@ -15,46 +15,57 @@ const SettingsModal = ({ close }) => {
   const [view, setView] = useState("settings");
 
   if (view === "auth") {
-    return <AuthGate onAuthSuccess={() => { setView("settings"); close(false); }} />;
+    return (
+      <AuthGate
+        onBack={() => setView("settings")}
+        onClose={close}
+        onAuthSuccess={() => { setView("settings"); close(false); }}
+      />
+    );
   }
 
   if (view === "statistics") {
-    return <Statistics close={close} />;
+    return <Statistics close={close} onBack={() => setView("settings")} />;
   }
 
   return (
-    <ModalWrapper close={close}>
-      <h1>Settings</h1>
+    <ModalWrapper close={close} className="settings-modal">
+      <header className="settings-header">
+        <p className="settings-eyebrow">PREFERENCES</p>
+        <h1>Settings</h1>
+        <p className="settings-description">Make the game feel right for you.</p>
+      </header>
 
-      <div className="Stats-div">
-        <p>Statistics</p>
-        <Stats onOpen={() => setView(currentUser ? "statistics" : "auth")} />
-      </div>
+      <div className="settings-options">
+        <section className="settings-option stats-option">
+          <Stats onOpen={() => setView(currentUser ? "statistics" : "auth")} />
+        </section>
 
-      <div className="setting-row">
-        <p>Audio</p>
-
-        <button
-          type="button"
-          role="switch"
-          aria-checked={soundEnabled}
-          aria-label="Audio"
-          className={`switch ${soundEnabled ? "on" : ""}`}
-          onClick={() => setSoundEnabled(!soundEnabled)}
-        >
-          <span className="switch-thumb" />
-        </button>
-
-        <Tooltip
-          text="Plays Amitabh Bachchan’s famous “7 crore” line from KBC when you win a round."
-          align="center"
-          wide
-          showOnTap
-        >
-          <button type="button" className="info-btn" aria-label="About audio">
-            <FiInfo />
-          </button>
-        </Tooltip>
+        <section className="settings-option audio-option">
+          <p className="settings-option-title audio-label">Audio</p>
+          <div className="audio-controls">
+            <button
+              type="button"
+              role="switch"
+              aria-checked={soundEnabled}
+              aria-label="Audio"
+              className={`switch ${soundEnabled ? "on" : ""}`}
+              onClick={() => setSoundEnabled(!soundEnabled)}
+            >
+              <span className="switch-thumb" />
+            </button>
+            <Tooltip
+              text="Plays Amitabh Bachchan’s famous “7 crore” line from KBC when you win a round."
+              align="center"
+              wide
+              showOnTap
+            >
+              <button type="button" className="info-btn" aria-label="About audio">
+                <FiInfo />
+              </button>
+            </Tooltip>
+          </div>
+        </section>
       </div>
 
       {currentUser && (

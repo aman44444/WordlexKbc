@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import "../Auth.css"
 import { useAuth } from '../../../Context/AuthContext';
 
-const Signup = ({onSwitch}) => {
+const Signup = ({onSwitch, onSuccess}) => {
   const emailRef =  useRef()
   const passwordRef =  useRef()
   const passwordConfirmRef =  useRef()
@@ -21,6 +21,7 @@ async function handleSubmit (e) {
       setError('')
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
+      onSuccess?.()
     } catch{
       setError("failed to create an account")
     } finally{

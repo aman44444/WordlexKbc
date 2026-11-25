@@ -3,12 +3,12 @@ import ProgressBar from "../../game/Progress/Progress";
 import ModalWrapper from "../ModalWrapper";
 import { useGame } from "../../../Context/GameContext";
 
-const Statistics = ({ close }) => {
+const Statistics = ({ close, onBack }) => {
   const { gameOver } = useGame();
 
 
   return (
-   <ModalWrapper close={close}>
+  <ModalWrapper close={close} onBack={onBack}>
        <h1>Statistics</h1>
           <h2>Days Progress</h2>
           <ProgressBar />
