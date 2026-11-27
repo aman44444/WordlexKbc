@@ -56,7 +56,7 @@ const SettingsModal = ({ close }) => {
             </button>
             <Tooltip
               text="Plays Amitabh Bachchan’s famous “7 crore” line from KBC when you win a round."
-              align="center"
+              align="end"
               wide
               showOnTap
             >

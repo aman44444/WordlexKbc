@@ -232,6 +232,14 @@
   height: 16px;
 }
 
+.settings-modal .tooltip-align-end {
+  right: -8px;
+}
+
+.settings-modal .tooltip-align-end::before {
+  right: 14px;
+}
+
 .settings-modal .logoutButton {
   width: 100%;
   min-height: 42px;
