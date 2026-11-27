@@ -22,6 +22,12 @@
   top: 0.7rem; 
   border-radius: 10px;
   cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.closebtn:hover,
+.closebtn:focus-visible {
+  color: #b49f39;
 }
 
 .backbtn {
